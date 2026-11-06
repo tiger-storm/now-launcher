@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Introducing Now Launcher — Now Launcher</title>
+  <meta name="description" content="Why Now Launcher was created: relevant suggestions, less scrolling, and one clean, responsive panel for the things you need." />
+  <link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Google+Sans:ital,wght@0,400;1,700&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" />
+
+  <style>
+    :root {
+      --bg: #f7f7f8;
+      --text-main: #111111;
+      --text-muted: #65656b;
+      --border-subtle: #e9e9ec;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text-main);
+    }
+
+    a { color: inherit; text-decoration: none; }
+    a:focus-visible, button:focus-visible {
+      outline: 2px solid var(--text-main);
+      outline-offset: 5px;
+      border-radius: 2px;
+    }
+
+    .skip-link {
+      position: fixed;
+      top: 12px;
+      left: 12px;
+      padding: 12px 16px;
+      background: #fff;
+      transform: translateY(-160%);
+      z-index: 10;
+    }
+    .skip-link:focus { transform: none; }
+
+    .page {
+      min-height: 100vh;
+      min-height: 100svh;
+      display: grid;
+      grid-template-columns: 29% minmax(0, 1fr);
+    }
+
+    .site-sidebar {
+      min-height: 100vh;
+      min-height: 100svh;
+      padding: 48px clamp(28px, 5.4vw, 104px);
+      border-right: 1px solid var(--border-subtle);
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-family: "Google Sans", system-ui, sans-serif;
+      font-size: clamp(20px, 1.45vw, 26px);
+      font-weight: 400;
+      letter-spacing: -0.04em;
+      white-space: nowrap;
+    }
+
+    .brand-now { color: #343434; font-weight: 700; font-style: italic; }
+    .brand-launcher { color: #787878; font-weight: 400; font-style: normal; }
+
+    .logo-icon {
+      color: #585252;
+      font-family: "Material Symbols Rounded";
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 48;
+      font-size: 1em;
+      font-weight: 400;
+      line-height: 1;
+      letter-spacing: normal;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 1em;
+      height: 1em;
+      flex-shrink: 0;
+    }
+
+    .nav { margin-top: clamp(40px, 6vh, 68px); }
+    .nav-links { display: flex; flex-direction: column; align-items: flex-start; }
+    .nav-links a, .nav-placeholder {
+      padding: 4px 0;
+      font-size: 16px;
+      line-height: 1.5;
+      color: var(--text-muted);
+    }
+    .nav-links a:hover { color: var(--text-main); text-decoration: underline; text-underline-offset: 5px; }
+    .nav-links a[aria-current="page"] { color: var(--text-main); font-weight: 600; }
+    .nav-toggle { display: none; }
+
+    .site-copyright {
+      margin-top: clamp(44px, 7vh, 80px);
+      color: var(--text-muted);
+      font-size: 11px;
+      line-height: 1.7;
+    }
+
+
+    .site-sidebar { position: sticky; top: 0; height: 100vh; height: 100svh; align-self: start; overflow-y: auto; }
+    .nav-placeholder { cursor: default; }
+    .nav-icon {
+      font-family: "Material Symbols Rounded";
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      font-size: 24px;
+      font-weight: 400;
+      line-height: 1;
+      letter-spacing: normal;
+      display: block;
+      width: 24px;
+      height: 24px;
+    }
+
+    @media (max-width: 1199px) {
+      .page { grid-template-columns: 24% minmax(0, 1fr); }
+      .site-sidebar { padding-inline: 24px; }
+      .brand { gap: 4px; font-size: 20px; }
+    }
+    @media (max-width: 900px) {
+      .page { display: flex; flex-direction: column; }
+      .site-sidebar { display: contents; }
+      .sidebar-content {
+        padding: 20px clamp(24px, 5vw, 40px);
+        border-bottom: 1px solid var(--border-subtle);
+        background: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+      .brand { font-size: 22px; }
+      .nav { width: 100%; margin: 0; }
+      .nav-links { padding-top: 8px; }
+      .nav-links a, .nav-placeholder { width: 100%; }
+      .nav-ready .nav-toggle {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 44px;
+        min-height: 44px;
+        border: 0;
+        background: transparent;
+        color: var(--text-main);
+        font: inherit;
+        cursor: pointer;
+      }
+      .nav-ready .nav-links { display: none; }
+      .nav-ready .nav-links.is-open { display: flex; }
+      .nav-ready .nav:has(.nav-links:not(.is-open)) { display: none; }
+      main { flex: 1; }
+      .site-copyright { order: 3; margin: 0; padding: 20px 24px 28px; text-align: center; }
+    }
+    @media (max-width: 480px) {
+      .sidebar-content { padding: 16px 24px; }
+      .brand { font-size: 20px; gap: 4px; }
+    }
+
+    main { min-width: 0; }
+    .reading-page {
+      width: 100%;
+      max-width: 1280px;
+      margin-inline: auto;
+      padding: clamp(64px, 6vw, 112px) clamp(32px, 5vw, 112px);
+      font-size: 16px;
+      line-height: 1.85;
+      color: #737379;
+    }
+    .page-label {
+      display: inline-block;
+      margin: 0 0 64px;
+      padding: 8px 12px;
+      background: #ededee;
+      font-size: 12px;
+      font-weight: 500;
+      line-height: 1.5;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+      color: #404045;
+    }
+    .reading-header { padding-bottom: 28px; margin-bottom: 28px; border-bottom: 1px solid #dedee2; }
+    .reading-title { font-family: "Google Sans", system-ui, sans-serif; font-size: 24px; font-weight: 400; line-height: 1.4; letter-spacing: -0.02em; color: var(--text-main); margin-bottom: 8px; }
+    .reading-deck { font-size: 16px; line-height: 1.85; }
+    .reading-page p { margin: 0 0 18px; }
+    .reading-page p:last-child { margin-bottom: 0; }
+    .reading-page h2:not(.reading-title), .reading-page h3 { font-family: inherit; font-size: 17px; font-weight: 500; line-height: 1.6; color: var(--text-main); margin: 0 0 18px; }
+    .reading-page h3 { margin-top: 24px; font-size: 16px; }
+    .reading-page strong { font-weight: 600; color: #44444a; }
+    .reading-page a { text-decoration: underline; text-underline-offset: 4px; text-decoration-color: #b8b8bf; overflow-wrap: anywhere; }
+    .reading-page a:hover { color: var(--text-main); text-decoration-color: currentColor; }
+    .reading-page ul { padding-left: 22px; margin: 0 0 20px; }
+    .reading-page li { margin-bottom: 12px; }
+    .article-body section { border-top: 1px solid #dedee2; margin-top: 32px; padding-top: 32px; }
+    .introduction-media { display: block; margin-top: 32px; }
+    .introduction-media img { display: block; width: 100%; height: auto; border-radius: 16px; }
+    .introduction-media + p { margin-top: 32px; }
+    .section-divider { border: 0; border-top: 1px solid #dedee2; margin: 32px 0; }
+    .policy-meta { font-size: 14px; }
+    .contact-block { margin-top: 20px; }
+    .article-footer { border-top: 1px solid #dedee2; margin-top: 32px; padding-top: 28px; font-size: 14px; }
+    @media (max-width: 900px) {
+      .reading-page { padding: 48px clamp(24px, 6vw, 48px); }
+      .page-label { margin-bottom: 40px; }
+    }
+    @media (max-width: 480px) {
+      .reading-page { padding-top: 36px; font-size: 15px; }
+      .reading-title { font-size: 22px; }
+      .reading-deck { font-size: 15px; }
+      .reading-page h2:not(.reading-title) { font-size: 16px; }
+      .article-body section { margin-top: 28px; padding-top: 28px; }
+      .section-divider { margin-block: 28px; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="page">
+    <aside class="site-sidebar" aria-label="Site navigation">
+      <div class="sidebar-content">
+        <a class="brand" href="/" aria-label="Now Launcher home">
+          <span class="logo-icon" aria-hidden="true">bolt</span>
+          <span><span class="brand-now">Now</span> <span class="brand-launcher">Launcher</span></span>
+        </a>
+        <button class="nav-toggle" type="button" aria-controls="primary-links" aria-expanded="false" aria-label="Open navigation"><span class="nav-icon" aria-hidden="true">menu</span></button>
+        <nav class="nav" aria-label="Primary navigation">
+          <div class="nav-links" id="primary-links">
+            <a href="/">Home</a>
+            <a href="/introduction" aria-current="page">Introduction</a>
+            <a href="/features">Features</a>
+            <a href="/roadmap">Roadmap</a>
+            <a href="/privacy">Privacy</a>
+            <a href="/terms">Terms of Service</a>
+          </div>
+        </nav>
+      </div>
+      <footer class="site-copyright">© <span id="year">2026</span> TIGERSTORM LIMITED</footer>
+    </aside>
+
+    <main id="main" tabindex="-1">
+      <article class="reading-page article" aria-labelledby="article-heading">
+        <h1 class="page-label" id="article-heading">Introduction</h1>
+        <header class="reading-header">
+          <h2 class="reading-title">Introducing Now Launcher</h2>
+          <p class="reading-deck">A home screen that starts with what you need, when you need it.</p>
+        </header>
+
+        <div class="article-body">
+          <p>Now Launcher began with a small, recurring frustration: picking up my phone to do something simple, then spending time finding where to start. An app on another page. A widget a few swipes away. Something I knew was there, but still had to look for.</p>
+          <p>Each interaction was small. Together, they made the home screen feel like another thing to navigate before I could get on with what I wanted to do. I wanted a shorter path from picking up my phone to finding something useful.</p>
+
+          <section aria-labelledby="other-launchers-heading">
+            <h2 id="other-launchers-heading">Learning from other launchers</h2>
+            <p>I have used other launchers over the years, and each serves its own purpose well. They helped me understand what I value in a home screen, and what I wanted to approach differently.</p>
+            <p><strong>Pixel Launcher</strong> has a minimal design, good animations and a familiar approach to home screen pages. I liked that simplicity, but moving between pages still felt clunky to me at times. I also wanted that kind of care in a launcher I could use beyond Pixel phones.</p>
+            <p><strong>Niagara Launcher</strong> is very good at quick search, with a clean, minimal design that feels thoughtfully built. For that style of launcher, it gets so much right. It showed me how effective a focused approach can be.</p>
+            <p><strong>Nova Launcher</strong> was the original go-to launcher for me in the earlier days of Android, with a huge amount of customisation. I appreciated that freedom, but over time I felt its approach had not kept pace with what I wanted from my home screen.</p>
+            <p>Those experiences helped shape Now Launcher: the simplicity and motion I enjoyed, the ease of finding things quickly, and the freedom to make the home screen my own, built around a different starting point.</p>
+          </section>
+
+          <section aria-labelledby="suggestions-heading">
+            <h2 id="suggestions-heading">From apps to relevant suggestions</h2>
+            <p>A traditional home screen starts with the apps you have installed. You arrange them into a grid, put some into folders, add a few widgets, and learn where everything lives. Over time, using your phone becomes partly an exercise in remembering that arrangement.</p>
+            <picture class="introduction-media">
+              <source media="(max-width: 900px)" srcset="/assets/introduction/old_media_portrait.png" />
+              <img src="/assets/introduction/old_media_landscape.png" alt="Traditional home screens with apps arranged in grids, folders, and widgets" loading="lazy" decoding="async" />
+            </picture>
+            <p>When looking for a potential UI design, I wanted something that could go beyond displaying apps or pages of widgets. I was inspired in part by interaction concepts explored in Armadillo, the experimental user interface from the Fuchsia project. Now Launcher is an independent project and is not affiliated with Google or the Fuchsia project.</p>
+            <p>The starting point for Now Launcher was a different question: what would be useful right now?</p>
+            <p>I wanted a context-aware model first: a home screen that updates and gives me the suggestions I need, when I need them. What is useful in the morning may be different from what I need during the afternoon or as the evening approaches. I wanted those suggestions to switch throughout the day, so the home screen could keep up with my day.</p>
+            <p>That question shifts the emphasis from showing a collection of apps to surfacing relevant suggestions. An app is still useful, but its place on the screen should reflect when you might need it. The same thinking applies to information: an upcoming event can be more useful than the calendar icon that leads to it.</p>
+            <p>The aim is to make the next step easier to spot. You should be able to open your home screen, recognise something useful, and act on it without first translating what you want into a place to look.</p>
+          </section>
+
+          <section aria-labelledby="scrolling-heading">
+            <h2 id="scrolling-heading">Less time looking</h2>
+            <p>Adding another home screen page gives you more room, but it also gives you another place to search. Put a widget on one page and an app on another, and even a familiar task can begin with a few swipes back and forth.</p>
+            <p>I wanted to remove as much of that searching as possible. Scrolling has a purpose when you are exploring something. It feels less useful when you are simply trying to reach an app or check a piece of information you already know you need.</p>
+            <p>For Now Launcher, reducing those repeated movements became a design constraint. Every extra page or layer needed a reason to exist. The home screen should help you reach your destination with fewer detours.</p>
+          </section>
+
+          <section aria-labelledby="panel-heading">
+            <h2 id="panel-heading">One panel, a clear starting point</h2>
+            <p>The idea was to centralise the experience into one panel: a consistent place for apps, information and suggestions. Bringing them together means you have one starting point, with less need to remember which page holds which thing.</p>
+            <p>Of course, putting everything together can create its own clutter. A single panel only helps if it is easy to read. That made a minimal, clean interface essential: clear hierarchy, enough space to distinguish things, and restraint about what competes for attention.</p>
+            <p>My measure of simplicity was practical. Could I understand what was on screen quickly? Could I find the next action without scanning a wall of equally prominent items? A cleaner layout needed to make those moments easier.</p>
+          </section>
+
+          <section aria-labelledby="speed-heading">
+            <h2 id="speed-heading">Speed is part of the experience</h2>
+            <p>Fewer swipes would mean little if the panel felt slow. Fast processing and smooth animation were requirements from the beginning. Opening the launcher, bringing up information and moving between states all needed to feel responsive.</p>
+            <p>Motion has a job here. It should make a change easy to follow, showing how the interface responds to your touch. Transitions should feel connected and controlled, with no unnecessary pause before you can take the next step.</p>
+            <p>That is the slickness I wanted: quick responses and movement that feels natural. The time saved by a more direct layout should carry through the whole interaction.</p>
+          </section>
+
+          <section aria-labelledby="now-heading">
+            <h2 id="now-heading">A home screen for now</h2>
+            <p>Now Launcher brings these ideas together around a simple ambition: spend less time finding your way around your phone. Context-aware suggestions that change throughout the day give you a useful starting point. One panel reduces the places you need to look. A clean interface and responsive motion help you move through it comfortably.</p>
+            <p>That is why I created Now Launcher: to make the moment between knowing what you want and getting to it a little shorter, every time you pick up your phone.</p>
+          </section>
+          <picture class="introduction-media">
+            <source media="(max-width: 900px)" srcset="/assets/introduction/media_portrait.png" />
+            <img src="/assets/introduction/media_landscape.png" alt="Now Launcher home screen preview" loading="lazy" decoding="async" />
+          </picture>
+        </div>
+
+        <footer class="article-footer">
+          <a class="back-link" href="/">← Back to Now Launcher</a>
+        </footer>
+      </article>
+    </main>
+  </div>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    const toggle = document.querySelector('.nav-toggle');
+    const links = document.getElementById('primary-links');
+    const mobile = window.matchMedia('(max-width: 900px)');
+    document.documentElement.classList.add('nav-ready');
+
+    function setNavigation(open) {
+      links.classList.toggle('is-open', open);
+      toggle.setAttribute('aria-expanded', String(open));
+      toggle.setAttribute('aria-label', open ? 'Close navigation' : 'Open navigation');
+      toggle.querySelector('.nav-icon').textContent = open ? 'close' : 'menu';
+    }
+
+    toggle.addEventListener('click', () => setNavigation(toggle.getAttribute('aria-expanded') !== 'true'));
+    links.addEventListener('click', event => {
+      if (event.target.closest('a')) setNavigation(false);
+    });
+    document.addEventListener('keydown', event => {
+      if (event.key === 'Escape' && toggle.getAttribute('aria-expanded') === 'true') {
+        setNavigation(false);
+        toggle.focus();
+      }
+    });
+    mobile.addEventListener('change', () => {
+      if (mobile.matches && links.contains(document.activeElement)) toggle.focus();
+      if (!mobile.matches && document.activeElement === toggle) links.querySelector('a').focus();
+      setNavigation(false);
+    });
+  </script>
+</body>
+</html>

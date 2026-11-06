@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Roadmap — Now Launcher</title>
+  <meta name="description" content="Explore what is next for Now Launcher, from Lights Out dark mode to smarter suggestions, and look back at completed features." />
+  <link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Google+Sans:ital,wght@0,400;1,700&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" />
+
+  <style>
+    /* ShadPaletteDark in lib/src/core/settings/theme.dart. */
+    :root {
+      color-scheme: dark;
+      --bg: #0b1220;
+      --surface: #050a17;
+      --surface-muted: #111827;
+      --text-main: #f8fafc;
+      --text-muted: #e1dfe9;
+      --text-secondary: #a7b2c5;
+      --border-subtle: #1f2937;
+      --accent: #6366f1;
+      --accent-text: #c7d2fe;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text-main);
+    }
+
+    a { color: inherit; text-decoration: none; }
+    a:focus-visible, button:focus-visible {
+      outline: 2px solid var(--text-main);
+      outline-offset: 5px;
+      border-radius: 2px;
+    }
+
+    .skip-link {
+      position: fixed;
+      top: 12px;
+      left: 12px;
+      padding: 12px 16px;
+      background: var(--surface);
+      transform: translateY(-160%);
+      z-index: 10;
+    }
+    .skip-link:focus { transform: none; }
+
+    .page {
+      min-height: 100vh;
+      min-height: 100svh;
+      display: grid;
+      grid-template-columns: 29% minmax(0, 1fr);
+    }
+
+    .site-sidebar {
+      min-height: 100vh;
+      min-height: 100svh;
+      padding: 48px clamp(28px, 5.4vw, 104px);
+      border-right: 1px solid var(--border-subtle);
+      background: var(--surface);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-family: "Google Sans", system-ui, sans-serif;
+      font-size: clamp(20px, 1.45vw, 26px);
+      font-weight: 400;
+      letter-spacing: -0.04em;
+      white-space: nowrap;
+    }
+
+    .brand-now { color: var(--text-main); font-weight: 700; font-style: italic; }
+    .brand-launcher { color: var(--text-muted); font-weight: 400; font-style: normal; }
+
+    .logo-icon {
+      color: var(--text-muted);
+      font-family: "Material Symbols Rounded";
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 48;
+      font-size: 1em;
+      font-weight: 400;
+      line-height: 1;
+      letter-spacing: normal;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 1em;
+      height: 1em;
+      flex-shrink: 0;
+    }
+
+    .nav { margin-top: clamp(40px, 6vh, 68px); }
+    .nav-links { display: flex; flex-direction: column; align-items: flex-start; }
+    .nav-links a, .nav-placeholder {
+      padding: 4px 0;
+      font-size: 16px;
+      line-height: 1.5;
+      color: var(--text-muted);
+    }
+    .nav-links a:hover { color: var(--text-main); text-decoration: underline; text-underline-offset: 5px; }
+    .nav-links a[aria-current="page"] { color: var(--text-main); font-weight: 600; }
+    .nav-toggle { display: none; }
+
+    .site-copyright {
+      margin-top: clamp(44px, 7vh, 80px);
+      color: var(--text-muted);
+      font-size: 11px;
+      line-height: 1.7;
+    }
+
+
+    .site-sidebar { position: sticky; top: 0; height: 100vh; height: 100svh; align-self: start; overflow-y: auto; }
+    .nav-placeholder { cursor: default; }
+    .nav-icon {
+      font-family: "Material Symbols Rounded";
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      font-size: 24px;
+      font-weight: 400;
+      line-height: 1;
+      letter-spacing: normal;
+      display: block;
+      width: 24px;
+      height: 24px;
+    }
+
+    @media (max-width: 1199px) {
+      .page { grid-template-columns: 24% minmax(0, 1fr); }
+      .site-sidebar { padding-inline: 24px; }
+      .brand { gap: 4px; font-size: 20px; }
+    }
+    @media (max-width: 900px) {
+      .page { display: flex; flex-direction: column; }
+      .site-sidebar { display: contents; }
+      .sidebar-content {
+        padding: 20px clamp(24px, 5vw, 40px);
+        border-bottom: 1px solid var(--border-subtle);
+        background: var(--surface);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+      .brand { font-size: 22px; }
+      .nav { width: 100%; margin: 0; }
+      .nav-links { padding-top: 8px; }
+      .nav-links a, .nav-placeholder { width: 100%; }
+      .nav-ready .nav-toggle {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 44px;
+        min-height: 44px;
+        border: 0;
+        background: transparent;
+        color: var(--text-main);
+        font: inherit;
+        cursor: pointer;
+      }
+      .nav-ready .nav-links { display: none; }
+      .nav-ready .nav-links.is-open { display: flex; }
+      .nav-ready .nav:has(.nav-links:not(.is-open)) { display: none; }
+      main { flex: 1; }
+      .site-copyright { order: 3; margin: 0; padding: 20px 24px 28px; text-align: center; }
+    }
+    @media (max-width: 480px) {
+      .sidebar-content { padding: 16px 24px; }
+      .brand { font-size: 20px; gap: 4px; }
+    }
+
+
+    html { scroll-behavior: smooth; }
+    main { min-width: 0; }
+    .roadmap-page {
+      width: 100%;
+      max-width: 1280px;
+      margin-inline: auto;
+      padding: clamp(64px, 6vw, 112px) clamp(32px, 5vw, 112px);
+      font-size: 15px;
+      line-height: 1.8;
+      overflow-wrap: anywhere;
+    }
+    .page-label {
+      display: inline-block;
+      margin-bottom: 48px;
+      padding: 8px 12px;
+      background: var(--surface-muted);
+      font-size: 12px;
+      font-weight: 500;
+      line-height: 1.5;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+      color: var(--text-muted);
+    }
+    .roadmap-header { padding-bottom: 32px; border-bottom: 1px solid var(--border-subtle); }
+    .reading-title {
+      margin-bottom: 14px;
+      font-family: "Google Sans", system-ui, sans-serif;
+      font-size: clamp(28px, 3vw, 40px);
+      line-height: 1.25;
+      font-weight: 400;
+      letter-spacing: -0.025em;
+    }
+    .reading-deck { max-width: 56ch; color: var(--text-muted); font-size: 16px; }
+    .roadmap-note {
+      margin-top: 28px;
+      padding: 18px 20px;
+      border-left: 2px solid var(--accent);
+      background: linear-gradient(110deg, #1e1b4b66, #11182788);
+      color: var(--text-muted);
+      font-size: 14px;
+      line-height: 1.8;
+    }
+    .roadmap-note strong { color: var(--text-main); font-weight: 500; }
+    .roadmap-meta { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 14px 24px; margin-top: 24px; font-size: 12px; }
+    .last-updated { color: var(--text-secondary); }
+    .jump-links { display: flex; flex-wrap: wrap; gap: 20px; }
+    .jump-links a { color: var(--accent-text); text-underline-offset: 5px; }
+    .jump-links a:hover { text-decoration: underline; }
+    .roadmap-section { margin-top: 52px; scroll-margin-top: 28px; }
+    .section-heading { display: flex; align-items: baseline; justify-content: space-between; flex-wrap: wrap; gap: 8px 20px; margin-bottom: 30px; }
+    .section-heading h2 { font-size: 18px; font-weight: 500; letter-spacing: -0.02em; }
+    .section-heading p { color: var(--text-secondary); font-size: 12px; }
+    .timeline { list-style: none; margin-left: 8px; padding: 0 0 0 32px; border-left: 1px solid var(--border-subtle); }
+    .timeline > li { position: relative; padding-bottom: 30px; }
+    .timeline > li:last-child { padding-bottom: 0; }
+    .timeline > li::before {
+      content: "";
+      position: absolute;
+      left: -38px;
+      top: 8px;
+      width: 11px;
+      height: 11px;
+      border: 2px solid var(--accent);
+      border-radius: 50%;
+      background: var(--bg);
+      box-shadow: 0 0 0 6px var(--bg);
+    }
+    .timeline-upcoming { border-image: linear-gradient(var(--accent), var(--border-subtle)) 1; }
+    .timeline-upcoming > li:first-child::before { background: var(--accent); box-shadow: 0 0 0 6px var(--bg), 0 0 24px #6366f155; }
+    .milestone { padding: 0 0 26px; border-bottom: 1px solid var(--border-subtle); }
+    .timeline > li:last-child .milestone { border-bottom: 0; padding-bottom: 0; }
+    .milestone-top { display: flex; align-items: baseline; justify-content: space-between; gap: 12px 20px; margin-bottom: 8px; }
+    .milestone :is(h3, h4) { color: var(--text-main); font-size: 17px; font-weight: 500; line-height: 1.5; letter-spacing: -0.015em; }
+    .milestone p { color: var(--text-secondary); max-width: 66ch; }
+    .status { flex-shrink: 0; color: var(--accent-text); font-size: 11px; line-height: 1.8; }
+    .completed-intro { margin-bottom: 32px; color: var(--text-secondary); font-size: 13px; }
+    .period-group + .period-group { margin-top: 32px; }
+    .period { display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px 14px; margin-bottom: 22px; }
+    .period h3 { font-size: 13px; font-weight: 500; color: var(--text-muted); }
+    .period span { font-size: 11px; letter-spacing: 0.04em; color: var(--text-secondary); }
+    .timeline-completed > li::before { content: "✓"; display: grid; place-items: center; left: -40px; top: 5px; width: 15px; height: 15px; border: 0; background: var(--surface-muted); color: var(--text-secondary); font-size: 11px; line-height: 1; }
+    .timeline-completed .status { color: var(--text-secondary); }
+    .suggestion-list { margin-top: 16px; padding-left: 18px; color: var(--text-secondary); font-size: 14px; }
+    .suggestion-list li { padding-left: 4px; margin-bottom: 8px; }
+    .suggestion-list li:last-child { margin-bottom: 0; }
+    .suggestion-list strong { color: var(--text-muted); font-weight: 500; }
+    .roadmap-footer { border-top: 1px solid var(--border-subtle); margin-top: 52px; padding-top: 24px; font-size: 13px; color: var(--text-secondary); }
+    .roadmap-footer a { color: var(--text-muted); text-decoration: underline; text-underline-offset: 4px; }
+    @media (max-width: 900px) {
+      .roadmap-page { padding: 48px clamp(24px, 6vw, 48px); }
+      .page-label { margin-bottom: 36px; }
+    }
+    @media (max-width: 480px) {
+      .roadmap-page { padding-top: 36px; font-size: 14px; }
+      .reading-deck { font-size: 15px; }
+      .roadmap-note { padding: 16px; font-size: 13px; }
+      .roadmap-section { margin-top: 40px; }
+      .timeline { padding-left: 24px; }
+      .timeline > li::before { left: -30px; }
+      .timeline-completed > li::before { left: -32px; }
+      .milestone-top { flex-direction: column; gap: 4px; }
+      .milestone :is(h3, h4) { font-size: 16px; }
+      .suggestion-list { font-size: 13px; }
+    }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="page">
+    <aside class="site-sidebar" aria-label="Site navigation">
+      <div class="sidebar-content">
+        <a class="brand" href="/" aria-label="Now Launcher home">
+          <span class="logo-icon" aria-hidden="true">bolt</span>
+          <span><span class="brand-now">Now</span> <span class="brand-launcher">Launcher</span></span>
+        </a>
+        <button class="nav-toggle" type="button" aria-controls="primary-links" aria-expanded="false" aria-label="Open navigation"><span class="nav-icon" aria-hidden="true">menu</span></button>
+        <nav class="nav" aria-label="Primary navigation">
+          <div class="nav-links" id="primary-links">
+            <a href="/">Home</a>
+            <a href="/introduction">Introduction</a>
+            <a href="/features">Features</a>
+            <a href="/roadmap" aria-current="page">Roadmap</a>
+            <a href="/privacy">Privacy</a>
+            <a href="/terms">Terms of Service</a>
+          </div>
+        </nav>
+      </div>
+      <footer class="site-copyright">© <span id="year">2026</span> TIGERSTORM LIMITED</footer>
+    </aside>
+
+    <main id="main" tabindex="-1">
+      <article class="roadmap-page" aria-labelledby="roadmap-heading">
+        <h1 class="page-label" id="roadmap-heading">Roadmap</h1>
+        <header class="roadmap-header">
+          <h2 class="reading-title">What’s next for Now Launcher.</h2>
+          <p class="reading-deck">A look at where we want to go, and the small steps that have brought us here.</p>
+          <aside class="roadmap-note" aria-label="About these plans">
+            <p><strong>A direction, rather than a promise.</strong> We want to deliver everything on this roadmap, but it may not always be possible. Priorities can change, ideas may evolve, and some features may never arrive. Upcoming items have no confirmed release dates.</p>
+          </aside>
+          <div class="roadmap-meta">
+            <p class="last-updated">Last updated <time datetime="2026-10-04">4 October 2026</time></p>
+            <nav class="jump-links" aria-label="Roadmap sections">
+              <a href="#upcoming">Upcoming work <span aria-hidden="true">↓</span></a>
+              <a href="#completed">Completed milestones <span aria-hidden="true">↓</span></a>
+            </nav>
+          </div>
+        </header>
+
+        <section class="roadmap-section" id="upcoming" aria-labelledby="upcoming-heading">
+          <header class="section-heading">
+            <h2 id="upcoming-heading">Looking ahead</h2>
+            <p>Planned · timing to be confirmed</p>
+          </header>
+          <ol class="timeline timeline-upcoming">
+            <li>
+              <article class="milestone">
+                <div class="milestone-top"><h3>More suggestion types</h3><span class="status">Planned</span></div>
+                <p>Explore more ways to bring useful information and actions to your home screen, with new suggestion types that earn their place in your day.</p>
+              </article>
+            </li>
+            <li>
+              <article class="milestone">
+                <div class="milestone-top"><h3>Better battery efficiency</h3><span class="status">Planned</span></div>
+                <p>Reduce unnecessary background work and refreshes so suggestions stay useful while asking less of your battery.</p>
+              </article>
+            </li>
+            <li>
+              <article class="milestone">
+                <div class="milestone-top"><h3>A smarter suggestion visibility cycle</h3><span class="status">Planned</span></div>
+                <p>Refine when suggestions appear, how long they remain visible and when they return, so the panel feels timely without becoming repetitive.</p>
+              </article>
+            </li>
+            <li>
+              <article class="milestone">
+                <div class="milestone-top"><h3>A more useful Explore page</h3><span class="status">Planned</span></div>
+                <p>Improve how you discover features and learn what Now Launcher can do, with clearer guidance and an easier path to trying things out.</p>
+              </article>
+            </li>
+            <li>
+              <article class="milestone">
+                <div class="milestone-top"><h3>Lifetime access</h3><span class="status">Planned</span></div>
+                <p>Update billing to support a lifetime purchase option, with clearer choices alongside recurring subscriptions.</p>
+              </article>
+            </li>
+            <li>
+              <article class="milestone">
+                <div class="milestone-top"><h3>Lights Out dark mode</h3><span class="status">Planned</span></div>
+                <p>Add a deeper, near-black theme for a quieter home screen at night and for anyone who prefers a darker display.</p>
+              </article>
+            </li>
+            <li>
+              <article class="milestone">
+                <div class="milestone-top"><h3>More robust app-closing animations</h3><span class="status">Planned</span></div>
+                <p>Improve the transition back to the home screen across different apps and navigation gestures, with more consistent motion and fewer visual interruptions.</p>
+              </article>
+            </li>
+          </ol>
+        </section>
+
+        <section class="roadmap-section" id="completed" aria-labelledby="completed-heading">
+          <header class="section-heading">
+            <h2 id="completed-heading">Already part of Now Launcher</h2>
+            <p>Newest milestones first</p>
+          </header>
+          <p class="completed-intro">A look back at completed features. Months and quarters are approximate completion periods, rather than exact release dates.</p>
+
+          <section class="period-group" aria-labelledby="period-0">
+            <header class="period"><h3 id="period-0">September 2026</h3><span>Q3 2026</span></header>
+            <ol class="timeline timeline-completed">
+            <li>
+              <article class="milestone">
+                <div class="milestone-top"><h4>More organised reminders</h4><span class="status">Completed</span></div>
+                <p>Added tags and improved sorting, including overdue groupings, to make your reminders easier to find and act on.</p>
+              </article>
+            </li>
+            </ol>
+          </section>
+
+          <section class="period-group" aria-labelledby="period-1">
+            <header class="period"><h3 id="period-1">August 2026</h3><span>Q3 2026</span></header>
+            <ol class="timeline timeline-completed">
+            <li>
+              <article class="milestone">
+                <div class="milestone-top"><h4>Reminders added</h4><span class="status">Completed</span></div>
+                <p>Create reminders with due dates and notifications, and see relevant tasks alongside the rest of your suggestions.</p>
+              </article>
+            </li>
+            </ol>
+          </section>
+
+          <section class="period-group" aria-labelledby="period-2">
+            <header class="period"><h3 id="period-2">June 2026</h3><span>Q2 2026</span></header>
+            <ol class="timeline timeline-completed">
+            <li>
+              <article class="milestone">
+                <div class="milestone-top"><h4>Icon customisation</h4><span class="status">Completed</span></div>
+                <p>Choose icon packs and shapes, adjust icon size, and use themed icons for favourites to make your apps feel at home.</p>
+              </article>
+            </li>
+            </ol>
+          </section>
+
+          <section class="period-group" aria-labelledby="period-3">
+            <header class="period"><h3 id="period-3">January 2026</h3><span>Q1 2026</span></header>
+            <ol class="timeline timeline-completed">
+            <li>
+              <article class="milestone">
+                <div class="milestone-top"><h4>Suggestions for everyday moments</h4><span class="status">Completed</span></div>
+                <p>Brought more of your day into one panel, with configurable suggestions and quick access to the information that matters.</p>
+                <ul class="suggestion-list">
+                  <li><strong>Apps &amp; contacts:</strong> useful starting points for opening an app or reaching someone.</li>
+                  <li><strong>Weather:</strong> current conditions and forecasts to help you plan your day.</li>
+                  <li><strong>Calendar:</strong> upcoming events, so your next commitment is easy to spot.</li>
+                  <li><strong>Travel:</strong> journey estimates for home and work, with location access enabled.</li>
+                  <li><strong>Media:</strong> playback information and controls for what you are listening to.</li>
+                  <li><strong>Bedtime:</strong> a timely nudge as your configured bedtime approaches.</li>
+                  <li><strong>Sports:</strong> football and Formula 1 updates, available in beta.</li>
+                </ul>
+              </article>
+            </li>
+            <li>
+              <article class="milestone">
+                <div class="milestone-top"><h4>Your own custom suggestions</h4><span class="status">Completed</span></div>
+                <p>Create personal suggestions and choose when they should appear, giving your routines a place on the home screen.</p>
+              </article>
+            </li>
+            </ol>
+          </section>
+
+          <section class="period-group" aria-labelledby="period-4">
+            <header class="period"><h3 id="period-4">November 2025</h3><span>Q4 2025</span></header>
+            <ol class="timeline timeline-completed">
+            <li>
+              <article class="milestone">
+                <div class="milestone-top"><h4>Permission setup</h4><span class="status">Completed</span></div>
+                <p>Added setup for location, calendar, contacts, phone and notification access, helping you enable the features that depend on them.</p>
+              </article>
+            </li>
+            <li>
+              <article class="milestone">
+                <div class="milestone-top"><h4>A built-in timer</h4><span class="status">Completed</span></div>
+                <p>Set a countdown from the launcher, then pause, resume or reset it without opening a separate timer app.</p>
+              </article>
+            </li>
+            </ol>
+          </section>
+
+          <section class="period-group" aria-labelledby="period-5">
+            <header class="period"><h3 id="period-5">June 2025</h3><span>Q2 2025</span></header>
+            <ol class="timeline timeline-completed">
+            <li>
+              <article class="milestone">
+                <div class="milestone-top"><h4>Display customisation</h4><span class="status">Completed</span></div>
+                <p>Choose light, dark or system appearance, switch between minimal and Material styling, and personalise colours and screen orientation.</p>
+              </article>
+            </li>
+            <li>
+              <article class="milestone">
+                <div class="milestone-top"><h4>Quick settings</h4><span class="status">Completed</span></div>
+                <p>Bring brightness, volume, Wi-Fi, Bluetooth and the torch within reach, with shortcuts to useful device controls.</p>
+              </article>
+            </li>
+            </ol>
+          </section>
+
+        </section>
+
+        <footer class="roadmap-footer">
+          <p>See how these ideas come together in <a href="/features">Now Launcher’s features</a>.</p>
+        </footer>
+      </article>
+    </main>
+  </div>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    const toggle = document.querySelector('.nav-toggle');
+    const links = document.getElementById('primary-links');
+    const mobile = window.matchMedia('(max-width: 900px)');
+    document.documentElement.classList.add('nav-ready');
+
+    function setNavigation(open) {
+      links.classList.toggle('is-open', open);
+      toggle.setAttribute('aria-expanded', String(open));
+      toggle.setAttribute('aria-label', open ? 'Close navigation' : 'Open navigation');
+      toggle.querySelector('.nav-icon').textContent = open ? 'close' : 'menu';
+    }
+
+    toggle.addEventListener('click', () => setNavigation(toggle.getAttribute('aria-expanded') !== 'true'));
+    links.addEventListener('click', event => {
+      if (event.target.closest('a')) setNavigation(false);
+    });
+    document.addEventListener('keydown', event => {
+      if (event.key === 'Escape' && toggle.getAttribute('aria-expanded') === 'true') {
+        setNavigation(false);
+        toggle.focus();
+      }
+    });
+    mobile.addEventListener('change', () => {
+      if (mobile.matches && links.contains(document.activeElement)) toggle.focus();
+      if (!mobile.matches && document.activeElement === toggle) links.querySelector('a').focus();
+      setNavigation(false);
+    });
+  </script>
+</body>
+</html>

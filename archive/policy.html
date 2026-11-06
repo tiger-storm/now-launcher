@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy — Now Launcher</title>
+  <link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Google+Sans:ital,wght@0,400;1,700&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" />
+
+  <style>
+    :root {
+      --bg: #f7f7f8;
+      --text-main: #111111;
+      --text-muted: #65656b;
+      --border-subtle: #e9e9ec;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text-main);
+    }
+
+    a { color: inherit; text-decoration: none; }
+    a:focus-visible, button:focus-visible {
+      outline: 2px solid var(--text-main);
+      outline-offset: 5px;
+      border-radius: 2px;
+    }
+
+    .skip-link {
+      position: fixed;
+      top: 12px;
+      left: 12px;
+      padding: 12px 16px;
+      background: #fff;
+      transform: translateY(-160%);
+      z-index: 10;
+    }
+    .skip-link:focus { transform: none; }
+
+    .page {
+      min-height: 100vh;
+      min-height: 100svh;
+      display: grid;
+      grid-template-columns: 29% minmax(0, 1fr);
+    }
+
+    .site-sidebar {
+      min-height: 100vh;
+      min-height: 100svh;
+      padding: 48px clamp(28px, 5.4vw, 104px);
+      border-right: 1px solid var(--border-subtle);
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-family: "Google Sans", system-ui, sans-serif;
+      font-size: clamp(20px, 1.45vw, 26px);
+      font-weight: 400;
+      letter-spacing: -0.04em;
+      white-space: nowrap;
+    }
+
+    .brand-now { color: #343434; font-weight: 700; font-style: italic; }
+    .brand-launcher { color: #787878; font-weight: 400; font-style: normal; }
+
+    .logo-icon {
+      color: #585252;
+      font-family: "Material Symbols Rounded";
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 48;
+      font-size: 1em;
+      font-weight: 400;
+      line-height: 1;
+      letter-spacing: normal;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 1em;
+      height: 1em;
+      flex-shrink: 0;
+    }
+
+    .nav { margin-top: clamp(40px, 6vh, 68px); }
+    .nav-links { display: flex; flex-direction: column; align-items: flex-start; }
+    .nav-links a, .nav-placeholder {
+      padding: 4px 0;
+      font-size: 16px;
+      line-height: 1.5;
+      color: var(--text-muted);
+    }
+    .nav-links a:hover { color: var(--text-main); text-decoration: underline; text-underline-offset: 5px; }
+    .nav-links a[aria-current="page"] { color: var(--text-main); font-weight: 600; }
+    .nav-toggle { display: none; }
+
+    .site-copyright {
+      margin-top: clamp(44px, 7vh, 80px);
+      color: var(--text-muted);
+      font-size: 11px;
+      line-height: 1.7;
+    }
+
+
+    .site-sidebar { position: sticky; top: 0; height: 100vh; height: 100svh; align-self: start; overflow-y: auto; }
+    .nav-placeholder { cursor: default; }
+    .nav-icon {
+      font-family: "Material Symbols Rounded";
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      font-size: 24px;
+      font-weight: 400;
+      line-height: 1;
+      letter-spacing: normal;
+      display: block;
+      width: 24px;
+      height: 24px;
+    }
+
+    @media (max-width: 1199px) {
+      .page { grid-template-columns: 24% minmax(0, 1fr); }
+      .site-sidebar { padding-inline: 24px; }
+      .brand { gap: 4px; font-size: 20px; }
+    }
+    @media (max-width: 900px) {
+      .page { display: flex; flex-direction: column; }
+      .site-sidebar { display: contents; }
+      .sidebar-content {
+        padding: 20px clamp(24px, 5vw, 40px);
+        border-bottom: 1px solid var(--border-subtle);
+        background: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+      .brand { font-size: 22px; }
+      .nav { width: 100%; margin: 0; }
+      .nav-links { padding-top: 8px; }
+      .nav-links a, .nav-placeholder { width: 100%; }
+      .nav-ready .nav-toggle {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 44px;
+        min-height: 44px;
+        border: 0;
+        background: transparent;
+        color: var(--text-main);
+        font: inherit;
+        cursor: pointer;
+      }
+      .nav-ready .nav-links { display: none; }
+      .nav-ready .nav-links.is-open { display: flex; }
+      .nav-ready .nav:has(.nav-links:not(.is-open)) { display: none; }
+      main { flex: 1; }
+      .site-copyright { order: 3; margin: 0; padding: 20px 24px 28px; text-align: center; }
+    }
+    @media (max-width: 480px) {
+      .sidebar-content { padding: 16px 24px; }
+      .brand { font-size: 20px; gap: 4px; }
+    }
+
+    main { min-width: 0; }
+    .reading-page {
+      width: 100%;
+      max-width: 1280px;
+      margin-inline: auto;
+      padding: clamp(64px, 6vw, 112px) clamp(32px, 5vw, 112px);
+      font-size: 16px;
+      line-height: 1.85;
+      color: #737379;
+    }
+    .page-label {
+      display: inline-block;
+      margin: 0 0 64px;
+      padding: 8px 12px;
+      background: #ededee;
+      font-size: 12px;
+      font-weight: 500;
+      line-height: 1.5;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+      color: #404045;
+    }
+    .reading-header { padding-bottom: 28px; margin-bottom: 28px; border-bottom: 1px solid #dedee2; }
+    .reading-title { font-family: "Google Sans", system-ui, sans-serif; font-size: 24px; font-weight: 400; line-height: 1.4; letter-spacing: -0.02em; color: var(--text-main); margin-bottom: 8px; }
+    .reading-deck { font-size: 16px; line-height: 1.85; }
+    .reading-page p { margin: 0 0 18px; }
+    .reading-page p:last-child { margin-bottom: 0; }
+    .reading-page h2:not(.reading-title), .reading-page h3 { font-family: inherit; font-size: 17px; font-weight: 500; line-height: 1.6; color: var(--text-main); margin: 0 0 18px; }
+    .reading-page h3 { margin-top: 24px; font-size: 16px; }
+    .reading-page strong { font-weight: 600; color: #44444a; }
+    .reading-page a { text-decoration: underline; text-underline-offset: 4px; text-decoration-color: #b8b8bf; overflow-wrap: anywhere; }
+    .reading-page a:hover { color: var(--text-main); text-decoration-color: currentColor; }
+    .reading-page ul { padding-left: 22px; margin: 0 0 20px; }
+    .reading-page li { margin-bottom: 12px; }
+    .article-body section { border-top: 1px solid #dedee2; margin-top: 32px; padding-top: 32px; }
+    .section-divider { border: 0; border-top: 1px solid #dedee2; margin: 32px 0; }
+    .policy-meta { font-size: 14px; }
+    .contact-block { margin-top: 20px; }
+    .article-footer { border-top: 1px solid #dedee2; margin-top: 32px; padding-top: 28px; font-size: 14px; }
+    @media (max-width: 900px) {
+      .reading-page { padding: 48px clamp(24px, 6vw, 48px); }
+      .page-label { margin-bottom: 40px; }
+    }
+    @media (max-width: 480px) {
+      .reading-page { padding-top: 36px; font-size: 15px; }
+      .reading-title { font-size: 22px; }
+      .reading-deck { font-size: 15px; }
+      .reading-page h2:not(.reading-title) { font-size: 16px; }
+      .article-body section { margin-top: 28px; padding-top: 28px; }
+      .section-divider { margin-block: 28px; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="page">
+    <aside class="site-sidebar" aria-label="Site navigation">
+      <div class="sidebar-content">
+        <a class="brand" href="/" aria-label="Now Launcher home">
+          <span class="logo-icon" aria-hidden="true">bolt</span>
+          <span><span class="brand-now">Now</span> <span class="brand-launcher">Launcher</span></span>
+        </a>
+        <button class="nav-toggle" type="button" aria-controls="primary-links" aria-expanded="false" aria-label="Open navigation"><span class="nav-icon" aria-hidden="true">menu</span></button>
+        <nav class="nav" aria-label="Primary navigation">
+          <div class="nav-links" id="primary-links">
+            <a href="/">Home</a>
+            <a href="/introduction">Introduction</a>
+            <a href="/features">Features</a>
+            <a href="/roadmap">Roadmap</a>
+            <a href="/privacy" aria-current="page">Privacy</a>
+            <a href="/terms">Terms of Service</a>
+          </div>
+        </nav>
+      </div>
+      <footer class="site-copyright">© <span id="year">2026</span> TIGERSTORM LIMITED</footer>
+    </aside>
+
+    <main id="main" tabindex="-1">
+    <article id="policy" class="reading-page policy-wrapper" aria-labelledby="policy-heading">
+      <h1 class="page-label" id="policy-heading">Privacy</h1>
+      <header class="reading-header">
+        <h2 class="reading-title">Privacy Policy for Now Launcher</h2>
+      <div class="policy-meta">
+        <strong>Last updated:</strong> <time datetime="2026-10-04">4 October 2026</time>
+      </div>
+      </header>
+      <p class="policy-lead">
+        Now Launcher is provided by TIGERSTORM LIMITED (“we”, “us”, “our”). This policy explains
+        what the Android app and this website process, what stays on your device, what is sent
+        to other services, and the choices available to you.
+      </p>
+      <p>
+        Launcher settings and personalisation are mainly stored on your device. Online features,
+        account services, purchases, diagnostics, and feedback also involve processing outside
+        your device. We do not sell personal data. The app does not display third-party adverts.
+      </p>
+
+      <hr class="section-divider" />
+
+      <h2>1. Launcher Data and Device Permissions</h2>
+      <p>
+        Now Launcher uses the following information to provide its features. Optional permissions
+        can be refused or revoked in Android settings; the related features may then be unavailable.
+      </p>
+      <ul>
+        <li>
+          <strong>Installed apps and launcher activity:</strong> App names, package identifiers,
+          icons, shortcuts, and available device profiles help us display and launch your apps.
+          Records of apps opened through Now Launcher, including opening times, are stored locally
+          to personalise suggestions. This is launcher activity, not a record of everything you
+          do inside other apps.
+        </li>
+        <li>
+          <strong>Contacts:</strong> With permission, the app reads contact details and photos for
+          search, favourites, and shortcuts. Favourite contact identifiers and names may be saved
+          locally. The contact integration does not upload your address book to our servers.
+        </li>
+        <li>
+          <strong>Calendar:</strong> With permission, the app reads calendar and event details to
+          display upcoming items. The calendar integration does not upload your calendar to our
+          servers. Your calendar provider may separately sync your calendar.
+        </li>
+        <li>
+          <strong>Notification access and media:</strong> Access to media notifications and active
+          media sessions supports playback information and controls. This integration processes
+          notification and media content locally rather than sending it to our servers. Android's
+          notification-access permission can allow access beyond the media information shown.
+        </li>
+        <li>
+          <strong>Content you create:</strong> Reminders, routines, custom cards, saved destinations,
+          favourites, search history, settings, avatars, and customised icons are stored locally.
+          Notifications and alarms are used to deliver timers and reminders.
+        </li>
+        <li>
+          <strong>Device controls:</strong> Features such as brightness, volume, Bluetooth, torch,
+          and wallpaper use device settings and related permissions. Choosing an image or taking
+          a photo for customisation may use Android's image picker or camera.
+        </li>
+      </ul>
+      <p>
+        When you choose an action such as calling a contact or opening directions to an event,
+        the relevant phone number, address, or destination is passed to the app or service that
+        carries out the action. Its own privacy policy applies.
+      </p>
+
+      <hr class="section-divider" />
+
+      <h2>2. Search and Online Content</h2>
+      <p>
+        The app stores up to 50 recent searches locally to offer history suggestions. You can
+        remove individual history entries in the app. <strong>When the app fetches online
+        autocomplete suggestions, the text you type is sent to Google's suggestion service
+        before you submit a web search.</strong> This can include text you enter while looking
+        for a local app or contact. The service also receives connection information such as
+        your IP address.
+      </p>
+      <p>
+        Submitting a search or opening a link sends the query or URL to the selected browser,
+        Google Search, YouTube, assistant, or other chosen service. The launcher does not read
+        your browser's browsing history.
+      </p>
+      <p>
+        Weather requests go to a third-party weather service and include your chosen place name when supplied. A request
+        without a place name allows the provider to use your IP address to estimate an area.
+        Sports cards request fixture or race information from content services, including the
+        team or fixture selection needed for the request. Online images and website icons are
+        fetched from their hosts; requesting a website icon from Google sends the website address
+        used for that icon. Website previews may also contact the website you enter.
+      </p>
+      <p>
+        These requests can happen when enabled cards refresh or images load, as well as when you
+        tap an action. Their recipients can process request details and IP addresses under their
+        own policies. Avoid entering sensitive information into online search or public feedback.
+      </p>
+
+      <hr class="section-divider" />
+
+      <h2>3. Optional Sign-In and Purchases</h2>
+      <p>
+        Google Sign-In and Firebase Authentication provide optional account access. Signing in
+        makes your Google account identifier, name, email address, and available profile details
+        accessible to the authentication service and the app. We use account information to
+        identify your account and link premium access; signing in does not automatically upload
+        your launcher settings, contacts, or calendar.
+      </p>
+      <p>
+        Google Play processes payments, and RevenueCat manages purchase validation, subscriptions,
+        restoration, and premium entitlements. RevenueCat processes an app user identifier,
+        purchase and subscription records, and related device or app information. If you sign in,
+        your Firebase user identifier is linked to RevenueCat so purchases can be associated with
+        your account. Billing services can also operate with an SDK-generated app user identifier
+        when you are not signed in.
+      </p>
+      <p>
+        Now Launcher does not receive your full payment-card number or bank credentials. Purchase
+        and entitlement information is available to us through our billing provider and is cached
+        by the app as needed to manage access. Using the app without an account does not prevent
+        billing or diagnostic services from initialising.
+      </p>
+
+      <hr class="section-divider" />
+
+      <h2>4. Diagnostics and Analytics</h2>
+      <p>
+        The app includes Firebase Crashlytics and Google Analytics for Firebase to investigate
+        failures and understand app usage. These services may collect crash reports, error
+        details, interaction or session events, app version, device model, operating system,
+        installation or app-instance identifiers, and connection information. Analytics may
+        also access an Android advertising identifier where available under your device settings
+        and the service configuration. These identifiers and reports are not necessarily anonymous.
+      </p>
+      <p>
+        Diagnostic and analytics services can initialise automatically when the app starts,
+        including when you are not signed in. Revoking contact or calendar permissions does not
+        disable these services. We use diagnostics and analytics to improve reliability and
+        understand usage; the presence of an advertising identifier does not mean the app shows
+        adverts. Google explains its processing in the linked policies below.
+      </p>
+
+      <hr class="section-divider" />
+
+      <h2>5. Feedback and Support</h2>
+      <p>
+        In-app feedback, bug reports, and feature requests send the title, description, and
+        category you provide through our feedback service to GitLab. <strong>These requests are
+        publicly viewable.</strong> Device model, manufacturer, brand, display, and RAM details
+        are included only if you select “Include device details”. Do not include passwords,
+        private contact details, health information, or other confidential material in a public report.
+      </p>
+      <p>
+        For private support or a privacy request, email
+        <a href="mailto:hello@tigerstorm.dev">hello@tigerstorm.dev</a>. We receive your email
+        address and the information you choose to include. Contact us if you need personal
+        information removed from a feedback request we control; copies made by others may remain.
+      </p>
+
+      <hr class="section-divider" />
+
+      <h2>6. Storage, Backups, and Retention</h2>
+      <p>
+        Local app data remains until you remove it, it is replaced or pruned by the app, or you
+        clear the app's storage or uninstall it. Removing Android permissions stops the related
+        access but does not necessarily erase saved favourites, settings, or content you created.
+      </p>
+      <p>
+        <strong>Android backup and device transfer can copy app preferences and selected files</strong>,
+        including search history, launcher activity, reminders, favourites, settings, avatars,
+        and customised icons. Depending on your device and backup settings, copies can be held
+        by Google or your device's backup provider and restored on reinstall or another device.
+        Uninstalling or clearing storage does not by itself delete those backups. Use your device
+        or backup provider's controls to manage them.
+      </p>
+      <p>
+        Account records remain while the account exists, subject to deletion requests. Purchase
+        records, diagnostics, support messages, and public feedback have separate retention:
+        the relevant service's settings and policies, the time needed to resolve support or
+        reliability issues, and applicable accounting, legal, or dispute obligations determine
+        how long they are retained. Public feedback can remain after you stop using the app.
+        Contact us for information about a particular record or a deletion request.
+      </p>
+      <p>
+        We use Android's app storage protections and HTTPS for connections to our account,
+        billing, diagnostic, and feedback services. Third-party services and websites have their
+        own security practices. No storage or transmission method can guarantee complete security.
+      </p>
+
+      <hr class="section-divider" />
+
+      <h2>7. Service Providers and This Website</h2>
+      <p>Services described in this policy include:</p>
+      <ul>
+        <li><a href="https://policies.google.com/privacy">Google</a> — sign-in, Google Play, search, online icons, and applicable Android backups.</li>
+        <li><a href="https://firebase.google.com/support/privacy">Firebase</a> — authentication, Crashlytics, and analytics.</li>
+        <li><a href="https://www.revenuecat.com/privacy">RevenueCat</a> — subscription and entitlement management.</li>
+        <li><a href="https://about.gitlab.com/privacy/">GitLab</a> — public feedback requests.</li>
+        <li>Weather and other content providers, including the hosts of requested images and websites — online feature requests.</li>
+      </ul>
+      <p>
+        This website loads fonts and icons from Google Fonts. Those requests send connection
+        information, including your IP address, to Google. Visiting this website also sends
+        your IP address, requested page, and browser information to the hosting service; these
+        can appear in operational logs. The account-deletion page uses Firebase Authentication.
+      </p>
+      <p>
+        Providers may process information outside your country, including outside the UK or
+        European Economic Area. Their processing locations, retention terms, and transfer
+        safeguards are described in their privacy and service documentation. You can contact
+        us for information about providers processing your data on our behalf.
+      </p>
+
+      <hr class="section-divider" />
+
+      <h2>8. Your Choices, Account Deletion, and Rights</h2>
+      <ul>
+        <li>Review or revoke optional permissions in Android settings, and disable optional cards in the app where available.</li>
+        <li>Use the launcher without Google sign-in, remove individual search-history entries, or clear local app data through Android settings.</li>
+        <li>Manage Android backups and advertising identifiers using the controls available on your device or Google account.</li>
+        <li>
+          Delete your Firebase sign-in account using the app's “Delete Account” link or
+          <a href="https://nowlauncher.app/account/">the account-deletion page</a>.
+          Use the same Google account you used in Now Launcher.
+        </li>
+      </ul>
+      <p>
+        Account deletion, clearing local storage, removing a backup, and deleting public feedback
+        are separate actions. Deleting the sign-in account does not automatically erase local
+        launcher data, backups, public reports, or every record held by billing or diagnostic
+        providers. Email us to request deletion of associated personal data we control and to
+        discuss any records that must be retained. We may need to verify your identity.
+      </p>
+      <p>
+        <strong>Deleting your account or uninstalling the app does not cancel a subscription.</strong>
+        Manage or cancel it through
+        <a href="https://play.google.com/store/account/subscriptions">Google Play subscriptions</a>.
+      </p>
+      <p>
+        Depending on the law that applies to you, you may have rights to access, correct, delete,
+        restrict processing of, or receive a portable copy of your personal data. You may withdraw
+        consent where processing relies on consent. Contact us to exercise these rights or raise
+        a concern.
+      </p>
+      <p>
+        <strong>You may also object to processing based on legitimate interests.</strong>
+        You can complain to your local data protection authority, including the UK's
+        <a href="https://ico.org.uk/make-a-complaint/">Information Commissioner's Office</a>.
+      </p>
+
+      <hr class="section-divider" />
+
+      <h2>9. Children’s Privacy</h2>
+      <p>
+        The app is not intended for children under 13. We do not knowingly collect personal
+        information from children under 13. If you believe this has happened, contact us so we
+        can investigate and address it.
+      </p>
+
+      <hr class="section-divider" />
+
+      <h2>10. Changes to This Policy</h2>
+      <p>
+        We will update this page when the app's data practices change and revise the date above.
+        Where applicable law requires additional notice or consent for a change, that requirement
+        applies separately from publication of an updated policy.
+      </p>
+
+      <hr class="section-divider" />
+
+      <h2>11. Contact Us</h2>
+      <p>
+        TIGERSTORM LIMITED is responsible for the personal information we process to provide
+        Now Launcher. For questions about this policy, private support, or privacy requests:
+      </p>
+      <div class="contact-block">
+        <p><strong>TIGERSTORM LIMITED — Support and Privacy</strong></p>
+        <p>Email: <a href="mailto:hello@tigerstorm.dev">hello@tigerstorm.dev</a></p>
+      </div>
+    </article>
+    </main>
+  </div>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    const toggle = document.querySelector('.nav-toggle');
+    const links = document.getElementById('primary-links');
+    const mobile = window.matchMedia('(max-width: 900px)');
+    document.documentElement.classList.add('nav-ready');
+
+    function setNavigation(open) {
+      links.classList.toggle('is-open', open);
+      toggle.setAttribute('aria-expanded', String(open));
+      toggle.setAttribute('aria-label', open ? 'Close navigation' : 'Open navigation');
+      toggle.querySelector('.nav-icon').textContent = open ? 'close' : 'menu';
+    }
+
+    toggle.addEventListener('click', () => setNavigation(toggle.getAttribute('aria-expanded') !== 'true'));
+    links.addEventListener('click', event => {
+      if (event.target.closest('a')) setNavigation(false);
+    });
+    document.addEventListener('keydown', event => {
+      if (event.key === 'Escape' && toggle.getAttribute('aria-expanded') === 'true') {
+        setNavigation(false);
+        toggle.focus();
+      }
+    });
+    mobile.addEventListener('change', () => {
+      if (mobile.matches && links.contains(document.activeElement)) toggle.focus();
+      if (!mobile.matches && document.activeElement === toggle) links.querySelector('a').focus();
+      setNavigation(false);
+    });
+  </script>
+</body>
+</html>

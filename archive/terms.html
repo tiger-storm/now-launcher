@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Terms of Service — Now Launcher</title>
+  <link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Google+Sans:ital,wght@0,400;1,700&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" />
+
+  <style>
+    :root {
+      --bg: #f7f7f8;
+      --text-main: #111111;
+      --text-muted: #65656b;
+      --border-subtle: #e9e9ec;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text-main);
+    }
+
+    a { color: inherit; text-decoration: none; }
+    a:focus-visible, button:focus-visible {
+      outline: 2px solid var(--text-main);
+      outline-offset: 5px;
+      border-radius: 2px;
+    }
+
+    .skip-link {
+      position: fixed;
+      top: 12px;
+      left: 12px;
+      padding: 12px 16px;
+      background: #fff;
+      transform: translateY(-160%);
+      z-index: 10;
+    }
+    .skip-link:focus { transform: none; }
+
+    .page {
+      min-height: 100vh;
+      min-height: 100svh;
+      display: grid;
+      grid-template-columns: 29% minmax(0, 1fr);
+    }
+
+    .site-sidebar {
+      min-height: 100vh;
+      min-height: 100svh;
+      padding: 48px clamp(28px, 5.4vw, 104px);
+      border-right: 1px solid var(--border-subtle);
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-family: "Google Sans", system-ui, sans-serif;
+      font-size: clamp(20px, 1.45vw, 26px);
+      font-weight: 400;
+      letter-spacing: -0.04em;
+      white-space: nowrap;
+    }
+
+    .brand-now { color: #343434; font-weight: 700; font-style: italic; }
+    .brand-launcher { color: #787878; font-weight: 400; font-style: normal; }
+
+    .logo-icon {
+      color: #585252;
+      font-family: "Material Symbols Rounded";
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 48;
+      font-size: 1em;
+      font-weight: 400;
+      line-height: 1;
+      letter-spacing: normal;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 1em;
+      height: 1em;
+      flex-shrink: 0;
+    }
+
+    .nav { margin-top: clamp(40px, 6vh, 68px); }
+    .nav-links { display: flex; flex-direction: column; align-items: flex-start; }
+    .nav-links a, .nav-placeholder {
+      padding: 4px 0;
+      font-size: 16px;
+      line-height: 1.5;
+      color: var(--text-muted);
+    }
+    .nav-links a:hover { color: var(--text-main); text-decoration: underline; text-underline-offset: 5px; }
+    .nav-links a[aria-current="page"] { color: var(--text-main); font-weight: 600; }
+    .nav-toggle { display: none; }
+
+    .site-copyright {
+      margin-top: clamp(44px, 7vh, 80px);
+      color: var(--text-muted);
+      font-size: 11px;
+      line-height: 1.7;
+    }
+
+
+    .site-sidebar { position: sticky; top: 0; height: 100vh; height: 100svh; align-self: start; overflow-y: auto; }
+    .nav-placeholder { cursor: default; }
+    .nav-icon {
+      font-family: "Material Symbols Rounded";
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      font-size: 24px;
+      font-weight: 400;
+      line-height: 1;
+      letter-spacing: normal;
+      display: block;
+      width: 24px;
+      height: 24px;
+    }
+
+    @media (max-width: 1199px) {
+      .page { grid-template-columns: 24% minmax(0, 1fr); }
+      .site-sidebar { padding-inline: 24px; }
+      .brand { gap: 4px; font-size: 20px; }
+    }
+    @media (max-width: 900px) {
+      .page { display: flex; flex-direction: column; }
+      .site-sidebar { display: contents; }
+      .sidebar-content {
+        padding: 20px clamp(24px, 5vw, 40px);
+        border-bottom: 1px solid var(--border-subtle);
+        background: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+      .brand { font-size: 22px; }
+      .nav { width: 100%; margin: 0; }
+      .nav-links { padding-top: 8px; }
+      .nav-links a, .nav-placeholder { width: 100%; }
+      .nav-ready .nav-toggle {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 44px;
+        min-height: 44px;
+        border: 0;
+        background: transparent;
+        color: var(--text-main);
+        font: inherit;
+        cursor: pointer;
+      }
+      .nav-ready .nav-links { display: none; }
+      .nav-ready .nav-links.is-open { display: flex; }
+      .nav-ready .nav:has(.nav-links:not(.is-open)) { display: none; }
+      main { flex: 1; }
+      .site-copyright { order: 3; margin: 0; padding: 20px 24px 28px; text-align: center; }
+    }
+    @media (max-width: 480px) {
+      .sidebar-content { padding: 16px 24px; }
+      .brand { font-size: 20px; gap: 4px; }
+    }
+
+    main { min-width: 0; }
+    .reading-page {
+      width: 100%;
+      max-width: 1280px;
+      margin-inline: auto;
+      padding: clamp(64px, 6vw, 112px) clamp(32px, 5vw, 112px);
+      font-size: 16px;
+      line-height: 1.85;
+      color: #737379;
+    }
+    .page-label {
+      display: inline-block;
+      margin: 0 0 64px;
+      padding: 8px 12px;
+      background: #ededee;
+      font-size: 12px;
+      font-weight: 500;
+      line-height: 1.5;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+      color: #404045;
+    }
+    .reading-header { padding-bottom: 28px; margin-bottom: 28px; border-bottom: 1px solid #dedee2; }
+    .reading-title { font-family: "Google Sans", system-ui, sans-serif; font-size: 24px; font-weight: 400; line-height: 1.4; letter-spacing: -0.02em; color: var(--text-main); margin-bottom: 8px; }
+    .reading-deck { font-size: 16px; line-height: 1.85; }
+    .reading-page p { margin: 0 0 18px; }
+    .reading-page p:last-child { margin-bottom: 0; }
+    .reading-page h2:not(.reading-title), .reading-page h3 { font-family: inherit; font-size: 17px; font-weight: 500; line-height: 1.6; color: var(--text-main); margin: 0 0 18px; }
+    .reading-page h3 { margin-top: 24px; font-size: 16px; }
+    .reading-page strong { font-weight: 600; color: #44444a; }
+    .reading-page a { text-decoration: underline; text-underline-offset: 4px; text-decoration-color: #b8b8bf; overflow-wrap: anywhere; }
+    .reading-page a:hover { color: var(--text-main); text-decoration-color: currentColor; }
+    .reading-page ul { padding-left: 22px; margin: 0 0 20px; }
+    .reading-page li { margin-bottom: 12px; }
+    .article-body section { border-top: 1px solid #dedee2; margin-top: 32px; padding-top: 32px; }
+    .section-divider { border: 0; border-top: 1px solid #dedee2; margin: 32px 0; }
+    .policy-meta { font-size: 14px; }
+    .contact-block { margin-top: 20px; }
+    .article-footer { border-top: 1px solid #dedee2; margin-top: 32px; padding-top: 28px; font-size: 14px; }
+    @media (max-width: 900px) {
+      .reading-page { padding: 48px clamp(24px, 6vw, 48px); }
+      .page-label { margin-bottom: 40px; }
+    }
+    @media (max-width: 480px) {
+      .reading-page { padding-top: 36px; font-size: 15px; }
+      .reading-title { font-size: 22px; }
+      .reading-deck { font-size: 15px; }
+      .reading-page h2:not(.reading-title) { font-size: 16px; }
+      .article-body section { margin-top: 28px; padding-top: 28px; }
+      .section-divider { margin-block: 28px; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="page">
+    <aside class="site-sidebar" aria-label="Site navigation">
+      <div class="sidebar-content">
+        <a class="brand" href="/" aria-label="Now Launcher home">
+          <span class="logo-icon" aria-hidden="true">bolt</span>
+          <span><span class="brand-now">Now</span> <span class="brand-launcher">Launcher</span></span>
+        </a>
+        <button class="nav-toggle" type="button" aria-controls="primary-links" aria-expanded="false" aria-label="Open navigation"><span class="nav-icon" aria-hidden="true">menu</span></button>
+        <nav class="nav" aria-label="Primary navigation">
+          <div class="nav-links" id="primary-links">
+            <a href="/">Home</a>
+            <a href="/introduction">Introduction</a>
+            <a href="/features">Features</a>
+            <a href="/roadmap">Roadmap</a>
+            <a href="/privacy">Privacy</a>
+            <a href="/terms" aria-current="page">Terms of Service</a>
+          </div>
+        </nav>
+      </div>
+      <footer class="site-copyright">© <span id="year">2026</span> TIGERSTORM LIMITED</footer>
+    </aside>
+
+    <main id="main" tabindex="-1">
+    <article id="policy" class="reading-page policy-wrapper" aria-labelledby="terms-heading">
+      <h1 class="page-label" id="terms-heading">Terms of Service</h1>
+      <header class="reading-header">
+        <h2 class="reading-title">Terms of Service for Now Launcher</h2>
+        <div class="policy-meta">
+          <strong>Last updated:</strong> <time datetime="2025-11-23">23 November 2025</time>
+        </div>
+      </header>
+      <p class="policy-lead">
+        These Terms of Service (“Terms”) govern your use of Now Launcher (“Now Launcher”,
+        “the App”, “we”, “us” or “our”). By installing, accessing or using the App, you agree to
+        be bound by these Terms. If you do not agree to these Terms, you must not use the App.
+      </p>
+
+      <!-- NOTE: This template is provided for general informational purposes only and does not constitute legal advice. -->
+
+      <hr class="section-divider" />
+
+      <h2>1. Eligibility &amp; Acceptance</h2>
+      <p>
+        By using the App, you confirm that:
+      </p>
+      <ul>
+        <li>You are at least 13 years old (or the minimum age required in your country to use apps like this).</li>
+        <li>You have the legal capacity to agree to these Terms.</li>
+        <li>You will comply with these Terms and all applicable laws and regulations.</li>
+      </ul>
+      <p>
+        Your use of the App and any updates, features or services provided through it is also
+        subject to the terms and policies of the app store where you downloaded the App
+        (such as Google Play).
+      </p>
+
+      <hr class="section-divider" />
+
+      <h2>2. Description of the Service</h2>
+      <p>
+        Now Launcher is an Android launcher designed to personalise and enhance your device
+        experience, including (but not limited to) app organisation, search, widgets,
+        and optional integrations such as health, calendar, and notifications.
+      </p>
+      <p>
+        We may add, modify, or remove features from the App at any time. We are under no
+        obligation to continue providing any particular feature or functionality.
+      </p>
+
+      <hr class="section-divider" />
+
+      <h2>3. Licence to Use the App</h2>
+      <p>
+        Subject to your compliance with these Terms, we grant you a limited, non-exclusive,
+        non-transferable, revocable licence to install and use the App on an Android device
+        that you own or control, solely for personal, non-commercial use.
+      </p>
+      <p>You must not:</p>
+      <ul>
+        <li>Copy, modify, distribute, or create derivative works based on the App.</li>
+        <li>Reverse engineer, decompile, or attempt to extract the source code of the App, except where permitted by law.</li>
+        <li>Rent, lease, sell, sublicense, or otherwise transfer the App or any portion of it.</li>
+        <li>Remove or alter any proprietary notices, trademarks, or logos contained in the App.</li>
+      </ul>
+
+      <hr class="section-divider" />
+
+      <h2>4. User Accounts &amp; Authentication (Optional)</h2>
+      <p>
+        Some features may require sign-in using a third-party authentication provider
+        (for example, your Google account). If you choose to sign in:
+      </p>
+      <ul>
+        <li>You are responsible for maintaining the security of your account and device.</li>
+        <li>You must provide accurate information and keep it up to date.</li>
+        <li>You must not impersonate any other person or entity.</li>
+      </ul>
+      <p>
+        We reserve the right to suspend or terminate access to account-based features if we
+        reasonably believe you have violated these Terms or used the App in an abusive,
+        fraudulent, or unlawful manner.
+      </p>
+
+      <hr class="section-divider" />
+
+      <h2>5. Subscriptions, In-App Purchases &amp; Billing</h2>
+      <p>
+        The App may offer premium features via in-app purchases or subscriptions
+        (collectively, “Paid Features”). All payments are processed securely by the
+        app store or billing provider (such as Google Play Billing).
+      </p>
+
+      <h3>5.1 Prices &amp; Taxes</h3>
+      <p>
+        Prices, subscription tiers and currency are determined by the app store.
+        Taxes and fees may be added in accordance with local laws.
+      </p>
+
+      <h3>5.2 Subscriptions &amp; Auto-Renewal</h3>
+      <p>
+        If you purchase a subscription, it may automatically renew at the end of each billing
+        period unless you cancel it at least 24 hours before the current period ends.
+        Renewal and cancellation instructions are managed through your app store account
+        settings.
+      </p>
+
+      <h3>5.3 Free Trials</h3>
+      <p>
+        We may offer free trials for certain Paid Features. If you do not cancel before the
+        trial ends, you may automatically be charged for the next billing period, as specified
+        by the app store.
+      </p>
+
+      <h3>5.4 Refunds</h3>
+      <p>
+        All purchases and refunds are handled in accordance with the policies of the
+        app store where you made the purchase. We do not process payments directly and
+        typically cannot issue refunds on your behalf. Please contact the app store
+        support for refund requests.
+      </p>
+
+      <hr class="section-divider" />
+
+      <h2>6. Permissions &amp; Data Use</h2>
+      <p>
+        The App may request Android permissions (such as access to notifications, apps list,
+        health data, calendar, contacts, or location) to provide specific features.
+        Our use of these permissions is described in more detail in our
+        <a href="/privacy">Privacy Policy</a>.
+      </p>
+      <p>
+        By granting permissions, you authorise the App to access the relevant data solely
+        to provide the requested functionality. You can revoke permissions at any time in
+        your device settings, but some features may stop working if you do.
+      </p>
+
+      <hr class="section-divider" />
+
+      <h2>7. Acceptable Use</h2>
+      <p>
+        You agree not to use the App in any way that:
+      </p>
+      <ul>
+        <li>Violates any applicable law or regulation.</li>
+        <li>Infringes the rights of others, including privacy, intellectual property, or other rights.</li>
+        <li>Interferes with or disrupts the operation of the App or connected services.</li>
+        <li>Attempts to gain unauthorised access to systems, networks, or data.</li>
+        <li>Introduces malware, viruses, or other harmful code.</li>
+      </ul>
+      <p>
+        We may take reasonable action, including limiting or terminating your access to the App,
+        where we believe you are misusing the App or violating these Terms.
+      </p>
+
+      <hr class="section-divider" />
+
+      <h2>8. Third-Party Services &amp; Links</h2>
+      <p>
+        The App may integrate or interact with third-party services such as:
+      </p>
+      <ul>
+        <li>Authentication providers (e.g., Google sign-in).</li>
+        <li>Billing and subscription platforms (e.g., Google Play Billing).</li>
+        <li>Health and fitness platforms (e.g., Health Connect).</li>
+        <li>Browsers, search engines, or other apps on your device.</li>
+      </ul>
+      <p>
+        Your use of third-party services is governed by their own terms and privacy policies.
+        We are not responsible for the content, services, or practices of third parties and do
+        not endorse them.
+      </p>
+
+      <hr class="section-divider" />
+
+      <h2>9. Intellectual Property</h2>
+      <p>
+        All rights, title, and interest in and to the App (including but not limited to
+        software, design, text, graphics, logos, icons, and other content) are owned by us
+        or our licensors and are protected by copyright, trademark, and other laws.
+      </p>
+      <p>
+        You retain any rights you have to content you create on your device while using the
+        App (for example, your app layout or configuration), but this does not grant you any
+        rights in the App itself.
+      </p>
+
+      <hr class="section-divider" />
+
+      <h2>10. Warranty Disclaimer</h2>
+      <p>
+        To the maximum extent permitted by law, the App is provided on an
+        <strong>“as is” and “as available”</strong> basis, without warranties of any
+        kind, whether express or implied.
+      </p>
+      <p>We do not guarantee that:</p>
+      <ul>
+        <li>The App will be error-free, uninterrupted, or secure.</li>
+        <li>Any defects will be corrected.</li>
+        <li>The App will be compatible with every device, Android version, or app.</li>
+      </ul>
+      <p>
+        Your use of the App is at your own risk, and you are solely responsible for any
+        damage to your device or loss of data that may result from using the App.
+      </p>
+
+      <hr class="section-divider" />
+
+      <h2>11. Limitation of Liability</h2>
+      <p>
+        To the maximum extent permitted by law, in no event shall we be liable for any
+        indirect, incidental, consequential, special, or punitive damages, or any loss of
+        profits or data, arising out of or in connection with your use of the App.
+      </p>
+      <p>
+        Our total aggregate liability for any claims arising out of or relating to the App
+        or these Terms shall be limited to the amount you paid (if any) for using the App
+        during the twelve (12) months prior to the event giving rise to the claim,
+        or the minimum amount permitted by applicable law.
+      </p>
+
+      <hr class="section-divider" />
+
+      <h2>12. Indemnity</h2>
+      <p>
+        You agree to indemnify and hold us harmless from and against any claims, liabilities,
+        damages, losses, and expenses (including reasonable legal fees) arising out of or
+        related to:
+      </p>
+      <ul>
+        <li>Your use or misuse of the App.</li>
+        <li>Your violation of these Terms.</li>
+        <li>Your violation of any applicable law or regulation.</li>
+      </ul>
+
+      <hr class="section-divider" />
+
+      <h2>13. Termination</h2>
+      <p>
+        You may stop using the App and uninstall it from your device at any time.
+      </p>
+      <p>
+        We may suspend or terminate your access to the App (or certain features) at any time,
+        with or without notice, if we reasonably believe:
+      </p>
+      <ul>
+        <li>You have violated these Terms.</li>
+        <li>Your use poses a risk to us, the App, or other users.</li>
+        <li>We are required to do so by law or by a third-party partner (such as the app store).</li>
+      </ul>
+      <p>
+        Upon termination, the rights and licences granted to you under these Terms will
+        immediately cease. Sections that by their nature should survive termination
+        (including but not limited to intellectual property, warranty disclaimer,
+        limitation of liability, and indemnity) shall continue to apply.
+      </p>
+
+      <hr class="section-divider" />
+
+      <h2>14. Changes to the App &amp; These Terms</h2>
+      <p>
+        We may update the App and these Terms from time to time, for example to:
+      </p>
+      <ul>
+        <li>Introduce new features or improve performance.</li>
+        <li>Comply with changes in law or app store policies.</li>
+        <li>Address security, usability, or technical issues.</li>
+      </ul>
+      <p>
+        When we make material changes to these Terms, we will update the “Last updated”
+        date at the top of this page and may provide additional notice within the App
+        where appropriate. Your continued use of the App after changes become effective
+        constitutes acceptance of the updated Terms.
+      </p>
+
+      <hr class="section-divider" />
+
+      <h2>15. Governing Law</h2>
+      <p>
+        These Terms and your use of the App are governed by the laws of England and Wales,
+        without regard to its conflict of law principles, unless the laws of your country
+        of residence require otherwise.
+      </p>
+      <p>
+        Any disputes arising out of or relating to these Terms or the App shall be subject
+        to the exclusive jurisdiction of the courts of England and Wales, unless applicable
+        law does not permit this.
+      </p>
+
+      <hr class="section-divider" />
+
+      <h2>16. Contact Us</h2>
+      <p>
+        If you have any questions or concerns about these Terms or the App, you can contact us at:
+      </p>
+      <div class="contact-block">
+        <p><strong>Support</strong></p>
+        <p>Email: <a href="mailto:hello@tigerstorm.dev">hello@tigerstorm.dev</a></p>
+      </div>
+    </article>
+    </main>
+  </div>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    const toggle = document.querySelector('.nav-toggle');
+    const links = document.getElementById('primary-links');
+    const mobile = window.matchMedia('(max-width: 900px)');
+    document.documentElement.classList.add('nav-ready');
+
+    function setNavigation(open) {
+      links.classList.toggle('is-open', open);
+      toggle.setAttribute('aria-expanded', String(open));
+      toggle.setAttribute('aria-label', open ? 'Close navigation' : 'Open navigation');
+      toggle.querySelector('.nav-icon').textContent = open ? 'close' : 'menu';
+    }
+
+    toggle.addEventListener('click', () => setNavigation(toggle.getAttribute('aria-expanded') !== 'true'));
+    links.addEventListener('click', event => {
+      if (event.target.closest('a')) setNavigation(false);
+    });
+    document.addEventListener('keydown', event => {
+      if (event.key === 'Escape' && toggle.getAttribute('aria-expanded') === 'true') {
+        setNavigation(false);
+        toggle.focus();
+      }
+    });
+    mobile.addEventListener('change', () => {
+      if (mobile.matches && links.contains(document.activeElement)) toggle.focus();
+      if (!mobile.matches && document.activeElement === toggle) links.querySelector('a').focus();
+      setNavigation(false);
+    });
+  </script>
+</body>
+</html>
