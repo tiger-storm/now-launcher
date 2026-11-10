@@ -257,7 +257,7 @@
       <header class="reading-header">
         <h2 class="reading-title">Privacy Policy for Now Launcher</h2>
       <div class="policy-meta">
-        <strong>Last updated:</strong> <time datetime="2026-10-04">4 October 2026</time>
+        <strong>Last updated:</strong> <time datetime="2026-11-10">10 November 2026</time>
       </div>
       </header>
       <p class="policy-lead">
@@ -376,21 +376,19 @@
 
       <hr class="section-divider" />
 
-      <h2>4. Diagnostics and Analytics</h2>
+      <h2>4. Crash Diagnostics</h2>
       <p>
-        The app includes Firebase Crashlytics and Google Analytics for Firebase to investigate
-        failures and understand app usage. These services may collect crash reports, error
-        details, interaction or session events, app version, device model, operating system,
-        installation or app-instance identifiers, and connection information. Analytics may
-        also access an Android advertising identifier where available under your device settings
-        and the service configuration. These identifiers and reports are not necessarily anonymous.
+        The app uses Firebase Crashlytics to investigate failures. Reports may include crash
+        and error details, app version, device model, operating system, installation identifiers
+        and connection information. These reports are not necessarily anonymous. This version
+        does not include Google Analytics for Firebase or request Android advertising identifiers.
       </p>
       <p>
-        Diagnostic and analytics services can initialise automatically when the app starts,
+        Crash diagnostics can initialise automatically when the app starts,
         including when you are not signed in. Revoking contact or calendar permissions does not
-        disable these services. We use diagnostics and analytics to improve reliability and
-        understand usage; the presence of an advertising identifier does not mean the app shows
-        adverts. Google explains its processing in the linked policies below.
+        disable crash diagnostics. We use these reports to improve reliability. Google's
+        processing is described in the linked Firebase documentation below. Removing Analytics
+        from a new app version does not itself delete historical reports from earlier versions.
       </p>
 
       <hr class="section-divider" />
@@ -446,7 +444,7 @@
       <p>Services described in this policy include:</p>
       <ul>
         <li><a href="https://policies.google.com/privacy">Google</a> — sign-in, Google Play, search, online icons, and applicable Android backups.</li>
-        <li><a href="https://firebase.google.com/support/privacy">Firebase</a> — authentication, Crashlytics, and analytics.</li>
+        <li><a href="https://firebase.google.com/support/privacy">Firebase</a> — authentication and Crashlytics.</li>
         <li><a href="https://www.revenuecat.com/privacy">RevenueCat</a> — subscription and entitlement management.</li>
         <li><a href="https://about.gitlab.com/privacy/">GitLab</a> — public feedback requests.</li>
         <li>Weather and other content providers, including the hosts of requested images and websites — online feature requests.</li>
@@ -470,18 +468,21 @@
       <ul>
         <li>Review or revoke optional permissions in Android settings, and disable optional cards in the app where available.</li>
         <li>Use the launcher without Google sign-in, remove individual search-history entries, or clear local app data through Android settings.</li>
-        <li>Manage Android backups and advertising identifiers using the controls available on your device or Google account.</li>
+        <li>Manage Android backups using the controls available on your device or Google account.</li>
         <li>
-          Delete your Firebase sign-in account using the app's “Delete Account” link or
-          <a href="https://home.tigerstorm.dev/account/">the account-deletion page</a>.
+          Delete your Firebase sign-in account and linked RevenueCat customer data using the app's “Delete Account” link or
+          <a href="https://nowlauncher.app/account/">the account-deletion page</a>.
           Use the same Google account you used in Now Launcher.
         </li>
       </ul>
       <p>
         Account deletion, clearing local storage, removing a backup, and deleting public feedback
-        are separate actions. Deleting the sign-in account does not automatically erase local
-        launcher data, backups, public reports, or every record held by billing or diagnostic
-        providers. Email us to request deletion of associated personal data we control and to
+        are separate actions. Account deletion removes linked RevenueCat customer data before
+        deleting Firebase authentication. If either step fails, the page will ask you to retry
+        rather than confirm completion. Close the app before deletion; signing in or restoring
+        purchases later may create new billing records. This action does not erase local
+        launcher data, backups, public reports, Google Play transaction records or all historical
+        diagnostic reports. Email us to request deletion of other personal data we control and to
         discuss any records that must be retained. We may need to verify your identity.
       </p>
       <p>

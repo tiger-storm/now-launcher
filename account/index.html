@@ -139,11 +139,13 @@
       getAuth,
       onAuthStateChanged,
       signInWithPopup,
+      reauthenticateWithPopup,
       GoogleAuthProvider,
       signOut
     } from "https://www.gstatic.com/firebasejs/11.0.0/firebase-auth.js";
+    import { deleteAccount } from './delete-account.js';
 
-    // TODO: Replace with YOUR 
+    // Firebase web configuration is public. Provider secrets stay on the Worker.
     const firebaseConfig = {
       apiKey: "AIzaSyCG1diiAghPAe4UnqDwC4uAl6bvC07BxVE",
       authDomain: "now-launcher.firebaseapp.com",
@@ -162,12 +164,15 @@
       const userInfoEl = document.getElementById("userInfo");
       const chipDot = document.querySelector(".chip-dot");
       const chipLabel = document.getElementById("chipLabel");
+      let deleting = false;
+      let deleted = false;
 
       function setStatus(text) {
         statusEl.textContent = text;
       }
 
       onAuthStateChanged(auth, (user) => {
+        if (deleting || deleted) return;
         if (user) {
           const email = user.email || "(no email)";
           userInfoEl.textContent = email;
@@ -192,14 +197,14 @@
         try {
           await signInWithPopup(auth, provider);
         } catch (e) {
-          console.error(e);
-          setStatus("Error signing in: " + (e?.message || e));
+          setStatus("Unable to sign in. Please try again.");
         } finally {
           loginBtn.disabled = false;
         }
       });
 
       deleteBtn.addEventListener("click", async () => {
+        if (deleting || deleted) return;
         const user = auth.currentUser;
         if (!user) {
           setStatus("No user signed in. Please sign in again.");
@@ -207,30 +212,35 @@
         }
 
         const confirmed = confirm(
-          "This will permanently delete your Now Launcher account linked to this Google account. This cannot be undone.\n\nContinue?"
+          "This will permanently delete your Now Launcher sign-in account and linked RevenueCat customer data. It will not cancel your Google Play subscription or clear data on your device. Close Now Launcher before continuing.\n\nContinue?"
         );
         if (!confirmed) return;
 
+        deleting = true;
         deleteBtn.disabled = true;
-        setStatus("Deleting your account…");
+        setStatus("Verify your Google account to continue…");
 
         try {
-          await user.delete();
-          setStatus("Your account has been deleted. You can now close this page.");
+          await reauthenticateWithPopup(user, provider);
+          setStatus("Deleting your account and linked billing data…");
+          await deleteAccount(await user.getIdToken(true));
+          deleted = true;
+          try { await signOut(auth); } catch (_) {}
+          setStatus("Your account and linked RevenueCat customer data have been deleted. Any Google Play subscription remains active until you cancel it.");
           userInfoEl.textContent = "Deleted";
           deleteBtn.style.display = "none";
+          loginBtn.style.display = "none";
           chipDot.style.background = "#6b7280";
           chipLabel.textContent = "Deleted";
         } catch (e) {
-          console.error(e);
           setStatus(
-            "Error deleting account: " +
-            (e?.message || e) +
-            "\nIf you see 'requires recent login', sign out, sign in again, then retry."
+            typeof e?.code === "string" && e.code.startsWith("auth/")
+              ? "Account verification was not completed. Please retry using the same Google account."
+              : "Deletion could not be confirmed. Please retry or contact hello@tigerstorm.dev."
           );
-          deleteBtn.disabled = false;
-          // optional: force reauth by signing out
-          try { await signOut(auth); } catch (_) {}
+        } finally {
+          deleting = false;
+          if (!deleted) deleteBtn.disabled = false;
         }
       });
     });
@@ -261,12 +271,20 @@
     </div>
 
     <small>
-      Deleting your account removes your Firebase authentication record and associated app data,
-      as described in our Privacy Policy. This cannot be undone.
+      Deleting your account removes your Firebase sign-in account and linked RevenueCat
+      customer data. This cannot be undone. Close Now Launcher before deleting your account.
+      Local launcher data, Android backups, public feedback and records held separately by
+      Google Play are not removed by this action. See our
+      <a href="https://nowlauncher.app/privacy/">Privacy Policy</a> for other records and deletion requests.
+      Signing in or restoring purchases later may create new billing records.
     </small>
 
+    <p><strong>Deleting your account does not cancel your subscription.</strong>
+      <a href="https://play.google.com/store/account/subscriptions">Manage or cancel it in Google Play</a>.
+    </p>
+
     <div class="brand">
-      Now Launcher · home.tigerstorm.dev
+      Now Launcher · nowlauncher.app
     </div>
   </div>
 </body>
