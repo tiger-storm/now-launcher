@@ -6,12 +6,7 @@
   <title>Terms of Service — Now Launcher</title>
   <link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Google+Sans:ital,wght@0,400;1,700&display=swap" />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" />
+  <link rel="stylesheet" href="/assets/fonts/fonts.css" />
 
   <style>
     :root {
@@ -257,16 +252,21 @@
       <header class="reading-header">
         <h2 class="reading-title">Terms of Service for Now Launcher</h2>
         <div class="policy-meta">
-          <strong>Last updated:</strong> <time datetime="2025-11-23">23 November 2025</time>
+          <strong>Last updated:</strong> <time datetime="2026-11-12">12 November 2026</time>
         </div>
       </header>
       <p class="policy-lead">
-        These Terms of Service (“Terms”) govern your use of Now Launcher (“Now Launcher”,
-        “the App”, “we”, “us” or “our”). By installing, accessing or using the App, you agree to
+        These Terms of Service (“Terms”) govern your use of Now Launcher (“the App”),
+        provided by TIGERSTORM LIMITED (“we”, “us” or “our”). By installing, accessing or using the App, you agree to
         be bound by these Terms. If you do not agree to these Terms, you must not use the App.
       </p>
 
-      <!-- NOTE: This template is provided for general informational purposes only and does not constitute legal advice. -->
+      <!-- Final review record: docs/privacy-finalisation-review-2026-11-11.md in the parent app repository. -->
+      <p>
+        The <a href="/privacy">Privacy Policy</a> explains how information is processed.
+        Accepting these Terms is not consent to optional data processing. Nothing in these
+        Terms limits consumer rights that cannot legally be excluded.
+      </p>
 
       <hr class="section-divider" />
 
@@ -276,7 +276,7 @@
       </p>
       <ul>
         <li>You are at least 13 years old (or the minimum age required in your country to use apps like this).</li>
-        <li>You have the legal capacity to agree to these Terms.</li>
+        <li>You have the legal capacity to agree to these Terms, or your parent or guardian has agreed where required by the law in your country.</li>
         <li>You will comply with these Terms and all applicable laws and regulations.</li>
       </ul>
       <p>
@@ -289,13 +289,22 @@
 
       <h2>2. Description of the Service</h2>
       <p>
-        Now Launcher is an Android launcher designed to personalise and enhance your device
-        experience, including (but not limited to) app organisation, search, widgets,
-        and optional integrations such as health, calendar, and notifications.
+        Now Launcher is an Android home-screen launcher. Free features include user-ordered
+        Sections, All Apps and search. Pro adds contextual Suggestions and other features
+        described in the App. Optional features include contacts, calendar, media controls,
+        reminders, timers, weather and sports information. Availability depends on your
+        device, Android version, permissions and any required online service.
       </p>
       <p>
-        We may add, modify, or remove features from the App at any time. We are under no
-        obligation to continue providing any particular feature or functionality.
+        Default Search lets you choose Google, Bing, DuckDuckGo or Device default for
+        submitted searches. Google is the default for an unset preference; existing choices
+        are preserved. Suggestions are separately set to On-device by default. Online adds
+        suggestions from your chosen engine only after a separate confirmation explaining
+        that text is sent before submission. You can return to On-device in search settings;
+        changing engines also returns suggestions to On-device. Device default opens submitted
+        searches in your device's search handler, where available. The existing search-result
+        actions continue to open the selected result. Online content can be delayed,
+        incomplete or unavailable. See the Privacy Policy for details.
       </p>
 
       <hr class="section-divider" />
@@ -308,9 +317,9 @@
       </p>
       <p>You must not:</p>
       <ul>
-        <li>Copy, modify, distribute, or create derivative works based on the App.</li>
-        <li>Reverse engineer, decompile, or attempt to extract the source code of the App, except where permitted by law.</li>
-        <li>Rent, lease, sell, sublicense, or otherwise transfer the App or any portion of it.</li>
+        <li>Copy, modify, distribute, or create derivative works based on the App, except as allowed by law or an applicable open-source licence.</li>
+        <li>Reverse engineer, decompile, or attempt to extract the source code of the App, except where permitted by law or an applicable open-source licence.</li>
+        <li>Rent, lease, sell, sublicense, or otherwise transfer the App, except as allowed by law or an applicable licence.</li>
         <li>Remove or alter any proprietary notices, trademarks, or logos contained in the App.</li>
       </ul>
 
@@ -318,8 +327,10 @@
 
       <h2>4. User Accounts &amp; Authentication (Optional)</h2>
       <p>
-        Some features may require sign-in using a third-party authentication provider
-        (for example, your Google account). If you choose to sign in:
+        The launcher can be used without signing in. Optional Google Sign-In uses Firebase
+        Authentication and can link your account to RevenueCat purchase entitlements.
+        Signing in does not sync your launcher settings, contacts or calendar to our servers.
+        If you choose to sign in:
       </p>
       <ul>
         <li>You are responsible for maintaining the security of your account and device.</li>
@@ -327,32 +338,41 @@
         <li>You must not impersonate any other person or entity.</li>
       </ul>
       <p>
-        We reserve the right to suspend or terminate access to account-based features if we
-        reasonably believe you have violated these Terms or used the App in an abusive,
-        fraudulent, or unlawful manner.
+        You can request deletion of your Firebase account and linked RevenueCat customer data
+        through the App's Delete Account link or <a href="/account/">account-deletion page</a>.
+        This does not clear local launcher data or backups, remove public feedback, or cancel
+        a Google Play subscription. The Privacy Policy explains the deletion process.
+      </p>
+      <p>
+        Account access is subject to the proportionate restriction and review process in
+        section 13 if it is used in an abusive, fraudulent or unlawful manner.
       </p>
 
       <hr class="section-divider" />
 
       <h2>5. Subscriptions, In-App Purchases &amp; Billing</h2>
       <p>
-        The App may offer premium features via in-app purchases or subscriptions
-        (collectively, “Paid Features”). All payments are processed securely by the
-        app store or billing provider (such as Google Play Billing).
+        Pro access is offered through Google Play purchases or subscriptions shown in the
+        App (“Paid Features”). Google Play processes payments; RevenueCat manages purchase
+        validation, restoration and entitlements. The product, price, billing period and
+        any trial or renewal terms shown at checkout apply to your purchase.
       </p>
 
       <h3>5.1 Prices &amp; Taxes</h3>
       <p>
-        Prices, subscription tiers and currency are determined by the app store.
-        Taxes and fees may be added in accordance with local laws.
+        The applicable price, currency and tax treatment are shown by Google Play before you
+        confirm a purchase. Any future price change is subject to Google Play's notice and
+        consent requirements and applicable law.
       </p>
 
       <h3>5.2 Subscriptions &amp; Auto-Renewal</h3>
       <p>
-        If you purchase a subscription, it may automatically renew at the end of each billing
-        period unless you cancel it at least 24 hours before the current period ends.
-        Renewal and cancellation instructions are managed through your app store account
-        settings.
+        An auto-renewing subscription renews for the billing period shown at purchase unless
+        you cancel before renewal. Manage or cancel it through
+        <a href="https://play.google.com/store/account/subscriptions">Google Play subscriptions</a>.
+        Access normally continues until the end of the period already paid for, subject to
+        refunds or other changes shown by Google Play. <strong>Uninstalling the App or deleting
+        your account does not cancel a subscription.</strong>
       </p>
 
       <h3>5.3 Free Trials</h3>
@@ -364,25 +384,30 @@
 
       <h3>5.4 Refunds</h3>
       <p>
-        All purchases and refunds are handled in accordance with the policies of the
-        app store where you made the purchase. We do not process payments directly and
-        typically cannot issue refunds on your behalf. Please contact the app store
-        support for refund requests.
+        You can request a refund through Google Play or contact us at
+        <a href="mailto:hello@tigerstorm.dev">hello@tigerstorm.dev</a> for purchase support.
+        Eligibility depends on Google Play's rules and your statutory rights; we can assist
+        with refunds through the developer tools where applicable. These Terms do not
+        remove any cancellation, refund or remedy rights you have under applicable law.
       </p>
 
       <hr class="section-divider" />
 
       <h2>6. Permissions &amp; Data Use</h2>
       <p>
-        The App may request Android permissions (such as access to notifications, apps list,
-        health data, calendar, contacts, or location) to provide specific features.
+        The App uses Android permissions and access controls for installed apps and profiles,
+        contacts, calendar, media notifications, reminders and device controls. The current
+        App does not integrate with Health Connect. Weather uses a chosen place or an area
+        estimated by the weather provider from the request's IP address, rather than GPS.
         Our use of these permissions is described in more detail in our
         <a href="/privacy">Privacy Policy</a>.
       </p>
       <p>
-        By granting permissions, you authorise the App to access the relevant data solely
-        to provide the requested functionality. You can revoke permissions at any time in
-        your device settings, but some features may stop working if you do.
+        You can refuse or revoke optional permissions in Android settings; related features
+        may then be unavailable. Permission grants are device-access controls, not blanket
+        consent to every use of personal information. Settings and content are mainly local,
+        but Android backups, online requests, accounts, billing and feedback can involve
+        other services, as described in the Privacy Policy.
       </p>
 
       <hr class="section-divider" />
@@ -410,24 +435,39 @@
         The App may integrate or interact with third-party services such as:
       </p>
       <ul>
-        <li>Authentication providers (e.g., Google sign-in).</li>
-        <li>Billing and subscription platforms (e.g., Google Play Billing).</li>
-        <li>Health and fitness platforms (e.g., Health Connect).</li>
-        <li>Browsers, search engines, or other apps on your device.</li>
+        <li>Google Sign-In and Firebase Authentication for optional accounts.</li>
+        <li>Google Play Billing and RevenueCat for purchases and entitlements.</li>
+        <li>Google, Bing or DuckDuckGo when chosen for search, and browsers, assistants, maps or other apps opened by your actions.</li>
+        <li>Weather, sports and image providers, including wttr.in, football-data.org and F1DB, directly or through our backend.</li>
+        <li>Cloudflare for backend services and GitLab for public feedback.</li>
       </ul>
       <p>
         Your use of third-party services is governed by their own terms and privacy policies.
-        We are not responsible for the content, services, or practices of third parties and do
-        not endorse them.
+        Their availability and content may change. Links and integration do not imply
+        endorsement or affiliation. This does not exclude our responsibility for services
+        we provide or obligations we have under applicable law.
       </p>
 
       <hr class="section-divider" />
 
       <h2>9. Intellectual Property</h2>
       <p>
-        All rights, title, and interest in and to the App (including but not limited to
-        software, design, text, graphics, logos, icons, and other content) are owned by us
-        or our licensors and are protected by copyright, trademark, and other laws.
+        We retain rights in our software, design and original content. Third-party software,
+        data, images, names, logos and trademarks remain the property of their respective
+        owners. Applicable open-source licences and content attributions continue to apply;
+        see the App's licences and relevant feature information.
+      </p>
+      <p>
+        Now Launcher is independent and is not an official Formula 1, football club, league,
+        competition or search-provider app. References to those organisations identify the
+        relevant content or service and do not imply sponsorship or endorsement. These Terms
+        do not grant you rights to reuse their assets.
+      </p>
+      <p>
+        Football team crests and competition emblems are disabled in the current app release.
+        Football data provided by the Football-Data.org API. Any future display of football
+        artwork requires separate permission covering its use; data attribution does not
+        itself grant rights to that artwork.
       </p>
       <p>
         You retain any rights you have to content you create on your device while using the
@@ -437,51 +477,56 @@
 
       <hr class="section-divider" />
 
-      <h2>10. Warranty Disclaimer</h2>
+      <h2>10. Availability and Your Consumer Rights</h2>
       <p>
-        To the maximum extent permitted by law, the App is provided on an
-        <strong>“as is” and “as available”</strong> basis, without warranties of any
-        kind, whether express or implied.
+        We aim to provide the App with reasonable care and skill. Where applicable consumer
+        law requires digital content to be of satisfactory quality, fit for purpose or as
+        described, those rights apply. You may be entitled to repair, replacement, a price
+        reduction, refund or another remedy under that law.
       </p>
       <p>We do not guarantee that:</p>
       <ul>
-        <li>The App will be error-free, uninterrupted, or secure.</li>
-        <li>Any defects will be corrected.</li>
+        <li>The App will be free from every error or interruption.</li>
         <li>The App will be compatible with every device, Android version, or app.</li>
+        <li>Third-party content will always be current or available.</li>
       </ul>
       <p>
-        Your use of the App is at your own risk, and you are solely responsible for any
-        damage to your device or loss of data that may result from using the App.
+        Android battery controls, permissions and device conditions can affect reminders,
+        timers and background updates. Keep appropriate backups of important content.
+        These practical limitations do not remove our responsibility for faults or losses
+        for which applicable law makes us responsible.
       </p>
 
       <hr class="section-divider" />
 
       <h2>11. Limitation of Liability</h2>
       <p>
-        To the maximum extent permitted by law, in no event shall we be liable for any
-        indirect, incidental, consequential, special, or punitive damages, or any loss of
-        profits or data, arising out of or in connection with your use of the App.
+        We are responsible for loss or damage that is a foreseeable result of our breach
+        of these Terms or failure to use reasonable care and skill, subject to applicable law.
+        The App is supplied for personal use; we do not accept liability for business losses
+        arising from use outside that purpose, where the law permits this exclusion.
       </p>
       <p>
-        Our total aggregate liability for any claims arising out of or relating to the App
-        or these Terms shall be limited to the amount you paid (if any) for using the App
-        during the twelve (12) months prior to the event giving rise to the claim,
-        or the minimum amount permitted by applicable law.
+        Nothing in these Terms excludes or limits liability for death or personal injury
+        caused by negligence, fraud or fraudulent misrepresentation, infringement of your
+        non-excludable consumer rights, or any other liability that cannot lawfully be limited.
       </p>
 
       <hr class="section-divider" />
 
-      <h2>12. Indemnity</h2>
+      <h2>12. Feedback and Your Content</h2>
       <p>
-        You agree to indemnify and hold us harmless from and against any claims, liabilities,
-        damages, losses, and expenses (including reasonable legal fees) arising out of or
-        related to:
+        The in-app feedback form sends reports to a public GitLab issue tracker. Device
+        details are included only if you select that option. Use email for private support
+        and do not submit confidential information or other people's personal details to
+        public reports. You retain rights in your feedback and allow us to use and display
+        it as needed to operate the issue tracker and address the report.
       </p>
-      <ul>
-        <li>Your use or misuse of the App.</li>
-        <li>Your violation of these Terms.</li>
-        <li>Your violation of any applicable law or regulation.</li>
-      </ul>
+      <p>
+        You must have the right to submit content you share. We may moderate abusive,
+        irrelevant or rights-infringing reports. Contact us to request removal of personal
+        information from reports we control; copies made by others may remain.
+      </p>
 
       <hr class="section-divider" />
 
@@ -490,19 +535,19 @@
         You may stop using the App and uninstall it from your device at any time.
       </p>
       <p>
-        We may suspend or terminate your access to the App (or certain features) at any time,
-        with or without notice, if we reasonably believe:
+        We may restrict account or online-service access where reasonably necessary if:
       </p>
       <ul>
-        <li>You have violated these Terms.</li>
+        <li>You materially or repeatedly violate these Terms.</li>
         <li>Your use poses a risk to us, the App, or other users.</li>
-        <li>We are required to do so by law or by a third-party partner (such as the app store).</li>
+        <li>We are required to do so by law or a binding app-store requirement.</li>
       </ul>
       <p>
-        Upon termination, the rights and licences granted to you under these Terms will
-        immediately cease. Sections that by their nature should survive termination
-        (including but not limited to intellectual property, warranty disclaimer,
-        limitation of liability, and indemnity) shall continue to apply.
+        Where practicable, we will explain the reason and give you an opportunity to address
+        it; urgent security or legal action may require an immediate restriction. You can
+        contact us to dispute a restriction. Termination does not remove accrued consumer
+        rights or refund entitlements, and does not itself cancel a subscription. Provisions
+        about ownership, liability and disputes continue where relevant after use ends.
       </p>
 
       <hr class="section-divider" />
@@ -518,9 +563,11 @@
       </ul>
       <p>
         When we make material changes to these Terms, we will update the “Last updated”
-        date at the top of this page and may provide additional notice within the App
-        where appropriate. Your continued use of the App after changes become effective
-        constitutes acceptance of the updated Terms.
+        date and provide notice appropriate to the change, including advance notice where
+        required. We will seek agreement where the law requires it. Changes will not
+        retrospectively remove accrued rights. If a change materially reduces Paid Features,
+        applicable cancellation and refund rights remain available. You can stop using the
+        App and manage future subscription renewal through Google Play.
       </p>
 
       <hr class="section-divider" />
@@ -532,9 +579,9 @@
         of residence require otherwise.
       </p>
       <p>
-        Any disputes arising out of or relating to these Terms or the App shall be subject
-        to the exclusive jurisdiction of the courts of England and Wales, unless applicable
-        law does not permit this.
+        Courts of England and Wales may hear disputes under these Terms. If you are a
+        consumer, this does not prevent you from using courts in your country of residence
+        where applicable law gives you that right, or deprive you of mandatory local protections.
       </p>
 
       <hr class="section-divider" />
@@ -544,7 +591,7 @@
         If you have any questions or concerns about these Terms or the App, you can contact us at:
       </p>
       <div class="contact-block">
-        <p><strong>Support</strong></p>
+        <p><strong>TIGERSTORM LIMITED — Support</strong></p>
         <p>Email: <a href="mailto:hello@tigerstorm.dev">hello@tigerstorm.dev</a></p>
       </div>
     </article>

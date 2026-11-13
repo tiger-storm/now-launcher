@@ -6,12 +6,7 @@
   <title>Privacy Policy — Now Launcher</title>
   <link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Google+Sans:ital,wght@0,400;1,700&display=swap" />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" />
+  <link rel="stylesheet" href="/assets/fonts/fonts.css" />
 
   <style>
     :root {
@@ -257,7 +252,7 @@
       <header class="reading-header">
         <h2 class="reading-title">Privacy Policy for Now Launcher</h2>
       <div class="policy-meta">
-        <strong>Last updated:</strong> <time datetime="2026-11-10">10 November 2026</time>
+        <strong>Last updated:</strong> <time datetime="2026-11-12">12 November 2026</time>
       </div>
       </header>
       <p class="policy-lead">
@@ -267,7 +262,7 @@
       </p>
       <p>
         Launcher settings and personalisation are mainly stored on your device. Online features,
-        account services, purchases, diagnostics, and feedback also involve processing outside
+        account services, purchases, and feedback also involve processing outside
         your device. We do not sell personal data. The app does not display third-party adverts.
       </p>
 
@@ -324,19 +319,38 @@
       <h2>2. Search and Online Content</h2>
       <p>
         The app stores up to 50 recent searches locally to offer history suggestions. You can
-        remove individual history entries in the app. <strong>When the app fetches online
-        autocomplete suggestions, the text you type is sent to Google's suggestion service
-        before you submit a web search.</strong> This can include text you enter while looking
-        for a local app or contact. The service also receives connection information such as
-        your IP address.
+        remove individual history entries in the app.
+        Default Search separates the search engine from the suggestion source. Google is
+        the default engine for submitted searches. You can choose Google, Bing, DuckDuckGo
+        or Device default, and the app saves your selection.
+        Suggestions default to <strong>On-device</strong>, using local history and the
+        built-in website catalogue without sending typed text to a suggestion provider.
+        Selecting a search engine does not enable online suggestions.
+      </p>
+      <p>
+        <strong>Online suggestions require a separate confirmation.</strong> If you enable
+        them, the selected engine receives typed text and connection information such as
+        your IP address before you submit a search. This can include text entered to find
+        local apps or contacts. Switch back to On-device at any time to stop future requests;
+        local results, history and submitted searches remain available. Changing engines
+        returns suggestions to On-device. Device default supports On-device suggestions only.
+        Search-result website icons use a local fallback in On-device mode; Online mode can
+        request those icons from Google.
+      </p>
+      <p>
+        The app saves your suggestion choice on your device with the provider, confirmation
+        wording and version, time of the change, and a revision number. Selecting On-device
+        records that online suggestions are disabled. Online suggestions require a valid
+        confirmation record for the selected provider.
       </p>
       <p>
         Submitting a search or opening a link sends the query or URL to the selected browser,
-        Google Search, YouTube, assistant, or other chosen service. The launcher does not read
-        your browser's browsing history.
+        chosen search provider, YouTube, assistant, or other chosen service. With Device default selected,
+        an explicitly submitted web search uses your device's search handler. The launcher
+        does not read your browser's browsing history.
       </p>
       <p>
-        Weather requests go to a third-party weather service and include your chosen place name when supplied. A request
+        Weather requests include your chosen place name when supplied. A request
         without a place name allows the provider to use your IP address to estimate an area.
         Sports cards request fixture or race information from content services, including the
         team or fixture selection needed for the request. Online images and website icons are
@@ -344,9 +358,19 @@
         used for that icon. Website previews may also contact the website you enter.
       </p>
       <p>
+        The app does not display or request football team crests or competition emblems.
+        Football fixture and score requests go through our backend. Other features can
+        request images as described above.
+      </p>
+      <p>
         These requests can happen when enabled cards refresh or images load, as well as when you
         tap an action. Their recipients can process request details and IP addresses under their
         own policies. Avoid entering sensitive information into online search or public feedback.
+      </p>
+      <p>
+        Fonts used by the app, including the Formula 1 card, are bundled with the app.
+        Displaying text does not send a font request to Google. On-device suggestions control
+        search suggestions; they do not disable the other online features described here.
       </p>
 
       <hr class="section-divider" />
@@ -371,24 +395,28 @@
         Now Launcher does not receive your full payment-card number or bank credentials. Purchase
         and entitlement information is available to us through our billing provider and is cached
         by the app as needed to manage access. Using the app without an account does not prevent
-        billing or diagnostic services from initialising.
+        authentication and billing services from initialising.
+      </p>
+      <p>
+        Signing out clears the app's current account and cached premium-access state.
+        If the billing service cannot complete sign-out, the app saves a local recovery flag
+        and prevents the old billing identity from restoring access or being used for another
+        billing action until recovery succeeds. Signing out does not delete your account,
+        purchase records or subscription.
       </p>
 
       <hr class="section-divider" />
 
       <h2>4. Crash Diagnostics</h2>
       <p>
-        The app uses Firebase Crashlytics to investigate failures. Reports may include crash
-        and error details, app version, device model, operating system, installation identifiers
-        and connection information. These reports are not necessarily anonymous. This version
-        does not include Google Analytics for Firebase or request Android advertising identifiers.
+        Now Launcher does not upload crash reports.
+        The app does not include Google Analytics for Firebase
+        or request Android advertising identifiers.
       </p>
       <p>
-        Crash diagnostics can initialise automatically when the app starts,
-        including when you are not signed in. Revoking contact or calendar permissions does not
-        disable crash diagnostics. We use these reports to improve reliability. Google's
-        processing is described in the linked Firebase documentation below. Removing Analytics
-        from a new app version does not itself delete historical reports from earlier versions.
+        Google Play may separately provide crash and app-not-responding information through
+        Android vitals when your device is eligible and you have chosen to share diagnostics
+        with Google. This is governed by Google's policies and your device settings.
       </p>
 
       <hr class="section-divider" />
@@ -400,6 +428,13 @@
         publicly viewable.</strong> Device model, manufacturer, brand, display, and RAM details
         are included only if you select “Include device details”. Do not include passwords,
         private contact details, health information, or other confidential material in a public report.
+      </p>
+      <p>
+        Our feedback service receives your IP address and derives a keyed identifier from it
+        to limit spam. Its abuse-control records contain that identifier, request timestamps,
+        and a fingerprint of the submitted report to detect duplicates. These records do not
+        contain the raw IP address or report text. The identifier is pseudonymous, not
+        necessarily anonymous. Hosting and network providers also receive connection data.
       </p>
       <p>
         For private support or a privacy request, email
@@ -424,17 +459,39 @@
         Uninstalling or clearing storage does not by itself delete those backups. Use your device
         or backup provider's controls to manage them.
       </p>
-      <p>
-        Account records remain while the account exists, subject to deletion requests. Purchase
-        records, diagnostics, support messages, and public feedback have separate retention:
-        the relevant service's settings and policies, the time needed to resolve support or
-        reliability issues, and applicable accounting, legal, or dispute obligations determine
-        how long they are retained. Public feedback can remain after you stop using the app.
-        Contact us for information about a particular record or a deletion request.
-      </p>
+      <ul>
+        <li>
+          <strong>Accounts and purchases:</strong> Authentication records remain while your
+          account exists, subject to deletion requests. Linked RevenueCat customer data is
+          included in the account-deletion process described in section 9. Google Play
+          transaction records are separate. Records needed to meet an applicable accounting,
+          legal or dispute obligation may need to be retained for that purpose.
+        </li>
+        <li>
+          <strong>Feedback abuse controls:</strong> The service uses a rolling 24-hour window
+          for its abuse-control records and a 10-minute window for duplicate checks. Older
+          records are removed during subsequent processing or scheduled cleanup, including
+          when submissions stop. These windows describe the abuse-control store, not GitLab
+          reports or the hosting provider's operational logs.
+        </li>
+        <li>
+          <strong>Public feedback:</strong> Reports can remain available after the issue is
+          closed or you stop using the app, so users can follow its resolution and identify
+          duplicate issues. Contact us to request removal of personal information from reports
+          we control. Removal cannot recall copies already made by others.
+        </li>
+        <li>
+          <strong>Private support:</strong> Retention depends on the information
+          needed to resolve an enquiry, investigate a failure or handle a related follow-up,
+          and any applicable legal or dispute obligations. We have not set a fixed deletion
+          period for support emails. Provider retention settings and backups can affect when
+          copies are removed; they do not justify keeping information we no longer need.
+          Contact us for the retention information applicable to a particular record.
+        </li>
+      </ul>
       <p>
         We use Android's app storage protections and HTTPS for connections to our account,
-        billing, diagnostic, and feedback services. Third-party services and websites have their
+        billing, and feedback services. Third-party services and websites have their
         own security practices. No storage or transmission method can guarantee complete security.
       </p>
 
@@ -443,17 +500,23 @@
       <h2>7. Service Providers and This Website</h2>
       <p>Services described in this policy include:</p>
       <ul>
-        <li><a href="https://policies.google.com/privacy">Google</a> — sign-in, Google Play, search, online icons, and applicable Android backups.</li>
-        <li><a href="https://firebase.google.com/support/privacy">Firebase</a> — authentication and Crashlytics.</li>
+        <li><a href="https://policies.google.com/privacy">Google</a> — sign-in, Google Play (including Android vitals), search, online icons, and applicable Android backups.</li>
+        <li><a href="https://privacy.microsoft.com/privacystatement">Microsoft Bing</a> — web searches and query suggestions when selected.</li>
+        <li><a href="https://duckduckgo.com/privacy">DuckDuckGo</a> — web searches and query suggestions when selected.</li>
+        <li><a href="https://firebase.google.com/support/privacy">Firebase</a> — authentication.</li>
         <li><a href="https://www.revenuecat.com/privacy">RevenueCat</a> — subscription and entitlement management.</li>
         <li><a href="https://about.gitlab.com/privacy/">GitLab</a> — public feedback requests.</li>
-        <li>Weather and other content providers, including the hosts of requested images and websites — online feature requests.</li>
+        <li><a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">GitHub</a> — hosting this website through GitHub Pages and security logging.</li>
+        <li><a href="https://www.cloudflare.com/privacypolicy/">Cloudflare</a> — backend content requests, account-deletion requests, and feedback processing and abuse controls.</li>
+        <li>Other content providers, including the hosts of requested images and websites — weather and other online feature requests.</li>
       </ul>
       <p>
-        This website loads fonts and icons from Google Fonts. Those requests send connection
-        information, including your IP address, to Google. Visiting this website also sends
-        your IP address, requested page, and browser information to the hosting service; these
-        can appear in operational logs. The account-deletion page uses Firebase Authentication.
+        This website serves its fonts and icons from its own assets; it does not request them
+        from Google Fonts. GitHub Pages hosts this website and those assets.
+        Visiting it sends your IP address, requested page, and browser information to GitHub.
+        GitHub records visitors' IP addresses for security, including when visitors are not
+        signed in to GitHub. Its privacy statement explains its handling and retention of this
+        information. The account-deletion page uses Firebase Authentication.
       </p>
       <p>
         Providers may process information outside your country, including outside the UK or
@@ -464,10 +527,114 @@
 
       <hr class="section-divider" />
 
-      <h2>8. Your Choices, Account Deletion, and Rights</h2>
+      <section id="lawful-bases" aria-labelledby="lawful-bases-heading">
+      <h2 id="lawful-bases-heading">8. Lawful Bases for Processing</h2>
+      <p>
+        Where the UK GDPR or EU GDPR applies, we rely on the following bases for the purposes
+        described below, to the extent that we act as controller of that processing.
+        A provider acting as a separate controller explains its own purposes and lawful bases
+        in its privacy notice.
+      </p>
+      <ul>
+        <li>
+          <strong>Providing features you request — contract, Article 6(1)(b).</strong>
+          We process your information where necessary to provide the launcher service you
+          request: displaying and launching apps, saving your settings and content, and
+          carrying out searches, directions and online-content requests you choose.
+          This basis also covers optional account authentication, purchase validation,
+          delivery of paid features and restoration of purchased access. It does not make
+          every optional background request necessary, or cover other people's information
+          simply because it appears on your device.
+        </li>
+        <li>
+          <strong>Online query suggestions — consent, Article 6(1)(a).</strong>
+          Online suggestions are disabled by default. We ask for separate confirmation
+          before sending typed text and connection information to the selected engine.
+          Choosing a search engine or pressing Continue during setup does not enable them.
+          Withdraw by selecting On-device in Default Search. This stops future suggestion
+          requests without affecting local results or your selected engine for submitted
+          searches. Withdrawal cannot recall requests already sent and does not affect
+          the lawfulness of processing before withdrawal. Changing engine requires a new
+          confirmation to enable online suggestions for that provider.
+        </li>
+        <li>
+          <strong>Local personalisation — legitimate interests, Article 6(1)(f).</strong>
+          Our interest is making the content you use on your device easier to find. Local
+          launcher activity and recent searches support suggestions, and selected contacts
+          and calendar integrations support access to your device's content. Safeguards
+          include local processing, permission gates, available feature controls, removal of
+          individual search-history entries and clearing local storage. We do not upload
+          your address book or calendar to our servers through these integrations. Actions
+          you choose to send to another app, online autocomplete and Android backups are
+          separate uses described above. A device user's choice cannot supply consent on
+          behalf of everyone whose information is on that device.
+        </li>
+        <li>
+          <strong>Entitlement checks before a purchase — legitimate interests, Article 6(1)(f).</strong>
+          Our interest is determining which features are available and recognising existing
+          purchases. RevenueCat can initialise and use an SDK-generated identifier before
+          you sign in or buy anything. This identifier and related billing information are
+          used for access management; the identifier is not necessarily anonymous.
+        </li>
+        <li>
+          <strong>Private support — legitimate interests, Article 6(1)(f).</strong>
+          Our interest is answering enquiries and resolving problems. We use the contact
+          details and relevant information you provide to investigate and respond. Required
+          privacy-rights requests are handled under the legal-obligation basis below.
+        </li>
+        <li>
+          <strong>Public feedback — legitimate interests, Article 6(1)(f).</strong>
+          Our interests are investigating bugs, planning improvements and maintaining a
+          shared issue record so people can follow progress and avoid duplicates. The form
+          warns that submissions are public; device details are optional and private email
+          support is available instead. Public reports should contain only information
+          relevant to the issue. Contact us to request removal of personal information.
+        </li>
+        <li>
+          <strong>Website delivery and service security — legitimate interests, Article 6(1)(f).</strong>
+          Our interests are serving requested pages and content, maintaining reliable account
+          and feedback services, and preventing abuse. Requests involve connection information
+          and infrastructure logs. The feedback guard uses keyed IP-derived identifiers,
+          timestamps and report fingerprints with the limited windows in section 6. Those
+          safeguards apply to the guard, not to every provider's operational logs.
+        </li>
+        <li>
+          <strong>Privacy rights and required records — legal obligation, Article 6(1)(c).</strong>
+          We process information where necessary to respond to applicable data-protection
+          rights, comply with a binding legal requirement, or keep records required by
+          applicable accounting or tax law. Identity checks are limited to what is needed
+          to avoid disclosing information to the wrong person. This basis applies to the
+          specific obligation, not to indefinite retention of all records.
+        </li>
+        <li>
+          <strong>Disputes and legal claims — legitimate interests, Article 6(1)(f).</strong>
+          Our interest is establishing, exercising or defending legal claims. Processing
+          and retention are limited to information needed for the particular dispute.
+        </li>
+      </ul>
+      <p>
+        Where we rely on legitimate interests, you can object on grounds relating to your
+        situation by emailing <a href="mailto:hello@tigerstorm.dev">hello@tigerstorm.dev</a>.
+        We will stop the processing unless we can demonstrate overriding compelling
+        legitimate grounds or need the information for legal claims.
+      </p>
+      <p>
+        Android permissions control access to device features; they are not blanket consent
+        to all processing. Article 6 bases do not by themselves authorise processing of
+        special-category information, such as health or religious information that might
+        appear in contact, calendar or free-text content. Any additional conditions and
+        controller responsibilities require separate assessment. Rules about storage or
+        access on devices, including PECR and applicable ePrivacy rules, also apply separately.
+      </p>
+      </section>
+
+      <hr class="section-divider" />
+
+      <h2>9. Your Choices, Account Deletion, and Rights</h2>
       <ul>
         <li>Review or revoke optional permissions in Android settings, and disable optional cards in the app where available.</li>
         <li>Use the launcher without Google sign-in, remove individual search-history entries, or clear local app data through Android settings.</li>
+        <li>Choose On-device under Suggestions in Default Search to stop online query suggestions. You can still use local results and explicitly submit searches.</li>
         <li>Manage Android backups using the controls available on your device or Google account.</li>
         <li>
           Delete your Firebase sign-in account and linked RevenueCat customer data using the app's “Delete Account” link or
@@ -481,8 +648,8 @@
         deleting Firebase authentication. If either step fails, the page will ask you to retry
         rather than confirm completion. Close the app before deletion; signing in or restoring
         purchases later may create new billing records. This action does not erase local
-        launcher data, backups, public reports, Google Play transaction records or all historical
-        diagnostic reports. Email us to request deletion of other personal data we control and to
+        launcher data, backups, public reports or Google Play transaction records.
+        Email us to request deletion of other personal data we control and to
         discuss any records that must be retained. We may need to verify your identity.
       </p>
       <p>
@@ -504,7 +671,7 @@
 
       <hr class="section-divider" />
 
-      <h2>9. Children’s Privacy</h2>
+      <h2>10. Children’s Privacy</h2>
       <p>
         The app is not intended for children under 13. We do not knowingly collect personal
         information from children under 13. If you believe this has happened, contact us so we
@@ -513,7 +680,7 @@
 
       <hr class="section-divider" />
 
-      <h2>10. Changes to This Policy</h2>
+      <h2>11. Changes to This Policy</h2>
       <p>
         We will update this page when the app's data practices change and revise the date above.
         Where applicable law requires additional notice or consent for a change, that requirement
@@ -522,7 +689,7 @@
 
       <hr class="section-divider" />
 
-      <h2>11. Contact Us</h2>
+      <h2>12. Contact Us</h2>
       <p>
         TIGERSTORM LIMITED is responsible for the personal information we process to provide
         Now Launcher. For questions about this policy, private support, or privacy requests:

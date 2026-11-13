@@ -1,0 +1,61 @@
+{
+  "retrieved": "2026-11-12",
+  "note": "Unmodified Latin and Latin Extended text subsets, plus the existing variable Material Symbols Rounded font. Fonts are served from this website, with no runtime Google Fonts requests.",
+  "files": [
+    {
+      "path": "website/assets/fonts/4Ua9rENHsxJlGDuGo1OIlL3L2JB874GPhFI9_IqmuRqGpjeaLi42kO8QvnQOs5beU3yksanMY6YmlyXKFgg8X4vcM_-T.woff2",
+      "source": "https://fonts.gstatic.com/s/googlesans/v76/4Ua9rENHsxJlGDuGo1OIlL3L2JB874GPhFI9_IqmuRqGpjeaLi42kO8QvnQOs5beU3yksanMY6YmlyXKFgg8X4vcM_-T.woff2",
+      "sha256": "deaa6d3bf3243304c7de15292c80f740cb694f4749e8a7972cc7a7f1c0cc0ccc"
+    },
+    {
+      "path": "website/assets/fonts/4Ua9rENHsxJlGDuGo1OIlL3L2JB874GPhFI9_IqmuRqGpjeaLi42kO8QvnQOs5beU3yksanMY6YmlyvKFgg8X4vcMw.woff2",
+      "source": "https://fonts.gstatic.com/s/googlesans/v76/4Ua9rENHsxJlGDuGo1OIlL3L2JB874GPhFI9_IqmuRqGpjeaLi42kO8QvnQOs5beU3yksanMY6YmlyvKFgg8X4vcMw.woff2",
+      "sha256": "7447c82a647d957030c697be92fa297fc8ef6a4b90be934b7ea368a19292daf9"
+    },
+    {
+      "path": "website/assets/fonts/4Ua_rENHsxJlGDuGo1OIlJfC6l_24rlCK1Yo_Iqcsih3SAyH6cAwhX9RFD48TE63OOYKtrwEIJlrpynAFyo4R4r0Mw.woff2",
+      "source": "https://fonts.gstatic.com/s/googlesans/v76/4Ua_rENHsxJlGDuGo1OIlJfC6l_24rlCK1Yo_Iqcsih3SAyH6cAwhX9RFD48TE63OOYKtrwEIJlrpynAFyo4R4r0Mw.woff2",
+      "sha256": "5485ff673edf5eb6145efb5f65b0d4f4255b496e4e3b0127a8c99df1728af8af"
+    },
+    {
+      "path": "website/assets/fonts/4Ua_rENHsxJlGDuGo1OIlJfC6l_24rlCK1Yo_Iqcsih3SAyH6cAwhX9RFD48TE63OOYKtrwEIJllpynAFyo4R4o.woff2",
+      "source": "https://fonts.gstatic.com/s/googlesans/v76/4Ua_rENHsxJlGDuGo1OIlJfC6l_24rlCK1Yo_Iqcsih3SAyH6cAwhX9RFD48TE63OOYKtrwEIJllpynAFyo4R4o.woff2",
+      "sha256": "4acdb0c185a65c35513e2a8d7435a520beefeca70c3259e0524525e7f6a3dfc2"
+    },
+    {
+      "path": "website/assets/fonts/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa25L7W0Q5n-wU.woff2",
+      "source": "https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa25L7W0Q5n-wU.woff2",
+      "sha256": "a28eb6d3ccb534ae0c94ca999371df024aab60b08c3c8a5720ee9e32fa0faaa2"
+    },
+    {
+      "path": "website/assets/fonts/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7W0Q5nw.woff2",
+      "source": "https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7W0Q5nw.woff2",
+      "sha256": "c940764593d0fe5d596be327ca7558855e018039fb78509aa21921fd3644c3e4"
+    },
+    {
+      "path": "website/assets/fonts/sykg-zNym6YjUruM-QrEh7-nyTnjDwKNJ_190FjzaqkNCeE.woff2",
+      "source": "https://fonts.gstatic.com/s/materialsymbolsrounded/v386/sykg-zNym6YjUruM-QrEh7-nyTnjDwKNJ_190FjzaqkNCeE.woff2",
+      "sha256": "5508cdcc31206ad700301f5c655054033d1d27efddeb9b6cd5a87cdadca76e0d"
+    },
+    {
+      "path": "website/assets/fonts/inter_OFL.txt",
+      "source": "https://raw.githubusercontent.com/google/fonts/6c1dbe27dcf7d817d4b62cec033ba77fa8e2a5ec/ofl/inter/OFL.txt",
+      "sha256": "5b9321a4298cfeb6b34354164a1c3afc3db114569984c502b9b35d988fd58c57"
+    },
+    {
+      "path": "website/assets/fonts/material_symbols_LICENSE.txt",
+      "source": "https://raw.githubusercontent.com/google/material-design-icons/master/LICENSE",
+      "sha256": "58d1e17ffe5109a7ae296caafcadfdbe6a7d176f0bc4ab01e12a689b0499d8bd"
+    },
+    {
+      "path": "website/assets/fonts/google_sans_OFL.txt",
+      "source": "https://raw.githubusercontent.com/googlefonts/googlesans/main/OFL.txt",
+      "sha256": "831b6e041705873c3e6efb18c4c96202bc41c8be42a456d3d26c47abf14816d0"
+    },
+    {
+      "path": "website/assets/fonts/google_sans_brand_OFL.txt",
+      "source": "Existing app notice: assets/licences/google_sans_OFL.txt (Google Sans Project Authors, 2025); retained alongside current upstream OFL notice.",
+      "sha256": "2b75ef20f13d83a7514aee452c4782c20cdc9ff2dee17600f44d37a06d4fb958"
+    }
+  ]
+}
