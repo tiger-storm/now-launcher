@@ -550,24 +550,33 @@
                         <div class="feature-preview-card">
                             <div class="feature-preview-phone-shell">
                                 <div class="feature-preview-inner-frame">
-                                    <img src="/assets/features/home.png" alt="Smart Suggestions"
-                                        class="feature-preview-image is-active" data-feature-id="smart" />
-                                    <img src="/assets/features/expanded.png" alt="Focus Mode"
-                                        class="feature-preview-image" data-feature-id="focus" />
-                                    <img src="/assets/features/search.png" alt="Search" class="feature-preview-image"
-                                        data-feature-id="search" />
-                                    <img src="/assets/features/all_applications.png" alt="Applications"
-                                        class="feature-preview-image" data-feature-id="apps" />
-                                    <img src="/assets/features/free.png" alt="Sections on the Free home screen"
-                                        class="feature-preview-image" data-feature-id="free" />
-                                    <img src="/assets/features/quick_settings.png" alt="Quick Settings"
-                                        class="feature-preview-image" data-feature-id="settings" />
-                                    <img src="/assets/features/application_design.png" alt="Personalisation"
-                                        class="feature-preview-image" data-feature-id="personalisation" />
-                                    <img src="/assets/features/personalise.png" alt="Customisation"
-                                        class="feature-preview-image" data-feature-id="customisation" />
-                                    <img src="/assets/features/permissions.png" alt="Permissions"
-                                        class="feature-preview-image" data-feature-id="permissions" />
+                                    <img src="/assets/features/ask_anything.png" alt="Sections showing apps, contacts and search"
+                                        class="feature-preview-image is-active" data-feature-id="sections"
+                                        aria-hidden="false" />
+                                    <img src="/assets/features/suggestions.png" alt="Suggestions showing media, a reminder, weather and an upcoming birthday"
+                                        class="feature-preview-image" data-feature-id="suggestions"
+                                        aria-hidden="true" />
+                                    <img src="/assets/features/search.png" alt="Search results with a website shortcut and web suggestions"
+                                        class="feature-preview-image" data-feature-id="search"
+                                        aria-hidden="true" />
+                                    <img src="/assets/features/quick_settings.png" alt="Quick Settings with brightness, volume, WiFi, Bluetooth, alarm and timer controls"
+                                        class="feature-preview-image" data-feature-id="settings"
+                                        aria-hidden="true" />
+                                    <img src="/assets/features/personalise.png" alt="Suggestions settings for custom cards, calendar, maps, media and weather"
+                                        class="feature-preview-image" data-feature-id="customisation"
+                                        aria-hidden="true" />
+                                    <img src="/assets/features/application_design.png" alt="Application settings for icon packs, shapes, themed icons and favourites"
+                                        class="feature-preview-image" data-feature-id="icons"
+                                        aria-hidden="true" />
+                                    <img src="/assets/features/display.png" alt="Display settings with Classic and Material styles, colours and light or dark appearance"
+                                        class="feature-preview-image" data-feature-id="personalisation"
+                                        aria-hidden="true" />
+                                    <img src="/assets/features/all_applications.png" alt="All Apps showing a searchable grid of installed applications"
+                                        class="feature-preview-image" data-feature-id="apps"
+                                        aria-hidden="true" />
+                                    <img src="/assets/features/permissions.png" alt="Permission controls for media, calendar, contacts and notifications"
+                                        class="feature-preview-image" data-feature-id="permissions"
+                                        aria-hidden="true" />
                                 </div>
                             </div>
                         </div>
@@ -576,59 +585,38 @@
                     <!-- Right side feature list -->
                     <aside class="feature-list" aria-label="Now Launcher features">
                         <div class="header-cta">
-                            <p class="feature-list-description">Available now on Google Play. Explore the <a href="/roadmap/#releases" style="text-decoration: underline;">1.3.0 and upcoming 1.5.0 highlights</a>.</p>
+                            <p class="feature-list-description">Available now on Google Play.</p>
                             <a href="https://play.google.com/store/apps/details?id=com.tigerstorm.home"
                                 class="play-badge-link">
                                 <img src="/assets/play_badge.svg" alt="Get it on Google Play" class="play-badge" />
                             </a>
                         </div>
 
-                        <button class="feature-list-item" type="button" data-feature-target="free" aria-pressed="false">
-                            <div class="feature-list-aspect">
-                                <div class="feature-list-content">
-                                    <div>
-                                        <div class="feature-list-title">Your Sections</div>
-                                        <p class="feature-list-description">
-                                            Arrange apps, contacts, calendar, media, reminders and search in your own order.
-                                            Choose layouts and visibility from each section’s settings, in Free and Pro.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </button>
-
-                        <button class="feature-list-item is-active" type="button" data-feature-target="smart"
+                        <button class="feature-list-item is-active" type="button" data-feature-target="sections"
                             aria-pressed="true">
                             <div class="feature-list-aspect">
                                 <div class="feature-list-content">
                                     <div>
-                                        <div class="feature-list-title">Smart Suggestions</div>
-                                        <div class="chip-background">
-                                            <div class="chip-pro">PRO</div>
-                                        </div>
+                                        <div class="feature-list-title">Sections</div>
                                         <p class="feature-list-description">
-                                            Pro brings contextual Suggestions to your home screen, including weather,
-                                            calendar, media and reminders. Open search to see your Sections; dismiss it to return to Suggestions.
+                                            Arrange apps, contacts, calendar, media, reminders and search in your own order. Choose layouts and visibility. Sections are your Free home and are available through search in Pro.
                                         </p>
                                     </div>
                                 </div>
                             </div>
                         </button>
 
-
-
-                        <button class="feature-list-item" type="button" data-feature-target="focus"
+                        <button class="feature-list-item" type="button" data-feature-target="suggestions"
                             aria-pressed="false">
                             <div class="feature-list-aspect">
                                 <div class="feature-list-content">
                                     <div>
-                                        <div class="feature-list-title">Keep Your Focus</div>
+                                        <div class="feature-list-title">Suggestions</div>
                                         <div class="chip-background">
                                             <div class="chip-pro">PRO</div>
                                         </div>
                                         <p class="feature-list-description">
-                                            Your suggestions stay minimized to keep your homescreen clear, expand them
-                                            anytime when you need more.
+                                            See timely weather, calendar, travel, media and reminder cards. Open search to see your Sections, then dismiss it to return to Suggestions.
                                         </p>
                                     </div>
                                 </div>
@@ -642,14 +630,12 @@
                                     <div>
                                         <div class="feature-list-title">Search &amp; Ask Now</div>
                                         <p class="feature-list-description">
-                                            In 1.5.0, type requests to preview reminders, calendar events and directions
-                                            before taking action. Ask Now hands questions to your chosen AI service only when tapped. Pro adds conversions and sports results.
+                                            Find apps, contacts, events and reminders, or search the web. Preview actions before confirming; open your chosen AI service with Ask Now. Pro adds conversions and sports results.
                                         </p>
                                     </div>
                                 </div>
                             </div>
                         </button>
-
 
                         <button class="feature-list-item" type="button" data-feature-target="settings"
                             aria-pressed="false">
@@ -657,9 +643,8 @@
                                 <div class="feature-list-content">
                                     <div>
                                         <div class="feature-list-title">Quick Settings</div>
-
                                         <p class="feature-list-description">
-                                            Instant access to the settings you use most—right from your homescreen.
+                                            Tap the avatar between the clock and battery for brightness, volume, WiFi, Bluetooth and more. Press and hold a tile to reorder your controls.
                                         </p>
                                     </div>
                                 </div>
@@ -671,14 +656,26 @@
                             <div class="feature-list-aspect">
                                 <div class="feature-list-content">
                                     <div>
-                                        <div class="feature-list-title">Customisation</div>
+                                        <div class="feature-list-title">Personalise Suggestions</div>
                                         <div class="chip-background">
                                             <div class="chip-pro">PRO</div>
                                         </div>
                                         <p class="feature-list-description">
-                                            Choose which Suggestions appear and create your own text, app, contact or website cards.
-                                            Version 1.5.0 adds images to Text Only Suggestions.
+                                            Choose which Suggestions appear. Create your own text, app, contact or website cards with schedules and repeats, and add an image to Text Only cards.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </button>
 
+                        <button class="feature-list-item" type="button" data-feature-target="icons"
+                            aria-pressed="false">
+                            <div class="feature-list-aspect">
+                                <div class="feature-list-content">
+                                    <div>
+                                        <div class="feature-list-title">App Icons</div>
+                                        <p class="feature-list-description">
+                                            Choose icon packs, shapes and themed colours. Change individual app icons with a matching icon pack or your own image, and organise your favourites.
                                         </p>
                                     </div>
                                 </div>
@@ -692,22 +689,21 @@
                                     <div>
                                         <div class="feature-list-title">Personalisation</div>
                                         <p class="feature-list-description">
-
-                                            Choose icon packs, individual app icons, fonts and colours. Version 1.5.0 adds
-                                            Sorbet and Paradise Classic colours, calendar selection and a preferred media app.
+                                            Make your home feel like yours with Classic or Material styles, colours, fonts and wallpaper. Choose light, dark or system appearance and your preferred screen orientation.
                                         </p>
                                     </div>
                                 </div>
                             </div>
                         </button>
 
-                        <button class="feature-list-item" type="button" data-feature-target="apps" aria-pressed="false">
+                        <button class="feature-list-item" type="button" data-feature-target="apps"
+                            aria-pressed="false">
                             <div class="feature-list-aspect">
                                 <div class="feature-list-content">
                                     <div>
-                                        <div class="feature-list-title">View All Applications</div>
+                                        <div class="feature-list-title">All Apps</div>
                                         <p class="feature-list-description">
-                                            All Apps is available in Free and Pro, with Private Space on supported Android devices.
+                                            Drag down to browse your apps or search by name. All Apps is available in Free and Pro, with Private Space on supported Android devices.
                                         </p>
                                     </div>
                                 </div>
@@ -721,14 +717,12 @@
                                     <div>
                                         <div class="feature-list-title">Permissions</div>
                                         <p class="feature-list-description">
-                                            Choose which permissions to grant for features such as contacts and calendar.
-                                            Permission controls are available in both Free and Pro.
+                                            Choose access for contacts, calendar, media and notifications. Enable the features you want and manage permissions in both Free and Pro.
                                         </p>
                                     </div>
                                 </div>
                             </div>
                         </button>
-
 
                     </aside>
                 </div>
@@ -775,8 +769,10 @@
             previewImages.forEach((img) => {
                 if (img.dataset.featureId === targetId) {
                     img.classList.add("is-active");
+                    img.setAttribute("aria-hidden", "false");
                 } else {
                     img.classList.remove("is-active");
+                    img.setAttribute("aria-hidden", "true");
                 }
             });
 
