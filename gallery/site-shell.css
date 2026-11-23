@@ -1,0 +1,270 @@
+/* Existing site shell, retained for the standalone Gallery page. */
+:root {
+            --bg: #f7f7f8;
+            --text-main: #111111;
+            --text-muted: #65656b;
+            --border-subtle: #e9e9ec;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            background: var(--bg);
+            color: var(--text-main);
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        a:focus-visible,
+        button:focus-visible {
+            outline: 2px solid var(--text-main);
+            outline-offset: 5px;
+            border-radius: 2px;
+        }
+
+        .skip-link {
+            position: fixed;
+            top: 12px;
+            left: 12px;
+            padding: 12px 16px;
+            background: #fff;
+            transform: translateY(-160%);
+            z-index: 10;
+        }
+
+        .skip-link:focus {
+            transform: none;
+        }
+
+        .page {
+            min-height: 100vh;
+            min-height: 100svh;
+            display: grid;
+            grid-template-columns: 29% minmax(0, 1fr);
+        }
+
+        .site-sidebar {
+            min-height: 100vh;
+            min-height: 100svh;
+            padding: 48px clamp(28px, 5.4vw, 104px);
+            border-right: 1px solid var(--border-subtle);
+            background: #fff;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .brand {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            font-family: "Google Sans", system-ui, sans-serif;
+            font-size: clamp(20px, 1.45vw, 26px);
+            font-weight: 400;
+            letter-spacing: -0.04em;
+            white-space: nowrap;
+        }
+
+        .brand-now {
+            color: #343434;
+            font-weight: 700;
+            font-style: italic;
+        }
+
+        .brand-launcher {
+            color: #787878;
+            font-weight: 400;
+            font-style: normal;
+        }
+
+        .logo-icon {
+            color: #585252;
+            font-family: "Material Symbols Rounded";
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 48;
+            font-size: 1em;
+            font-weight: 400;
+            line-height: 1;
+            letter-spacing: normal;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 1em;
+            height: 1em;
+            flex-shrink: 0;
+        }
+
+        .nav {
+            margin-top: clamp(40px, 6vh, 68px);
+        }
+
+        .nav-links {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .nav-links a,
+        .nav-placeholder {
+            padding: 4px 0;
+            font-size: 16px;
+            line-height: 1.5;
+            color: var(--text-muted);
+        }
+
+        .nav-links a:hover {
+            color: var(--text-main);
+            text-decoration: underline;
+            text-underline-offset: 5px;
+        }
+
+        .nav-links a[aria-current="page"] {
+            color: var(--text-main);
+            font-weight: 600;
+        }
+
+        .nav-toggle {
+            display: none;
+        }
+
+        .site-copyright {
+            margin-top: clamp(44px, 7vh, 80px);
+            color: var(--text-muted);
+            font-size: 11px;
+            line-height: 1.7;
+        }
+
+
+        .site-sidebar {
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            height: 100svh;
+            align-self: start;
+            overflow-y: auto;
+        }
+
+        .nav-placeholder {
+            cursor: default;
+        }
+
+        .nav-icon {
+            font-family: "Material Symbols Rounded";
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            font-size: 24px;
+            font-weight: 400;
+            line-height: 1;
+            letter-spacing: normal;
+            display: block;
+            width: 24px;
+            height: 24px;
+        }
+
+        @media (max-width: 1199px) {
+            .page {
+                grid-template-columns: 24% minmax(0, 1fr);
+            }
+
+            .site-sidebar {
+                padding-inline: 24px;
+            }
+
+            .brand {
+                gap: 4px;
+                font-size: 20px;
+            }
+        }
+
+        @media (max-width: 900px) {
+            .page {
+                display: flex;
+                flex-direction: column;
+            }
+
+            .site-sidebar {
+                display: contents;
+            }
+
+            .sidebar-content {
+                padding: 20px clamp(24px, 5vw, 40px);
+                border-bottom: 1px solid var(--border-subtle);
+                background: #fff;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                flex-wrap: wrap;
+                gap: 12px;
+            }
+
+            .brand {
+                font-size: 22px;
+            }
+
+            .nav {
+                width: 100%;
+                margin: 0;
+            }
+
+            .nav-links {
+                padding-top: 8px;
+            }
+
+            .nav-links a,
+            .nav-placeholder {
+                width: 100%;
+            }
+
+            .nav-ready .nav-toggle {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                min-width: 44px;
+                min-height: 44px;
+                border: 0;
+                background: transparent;
+                color: var(--text-main);
+                font: inherit;
+                cursor: pointer;
+            }
+
+            .nav-ready .nav-links {
+                display: none;
+            }
+
+            .nav-ready .nav-links.is-open {
+                display: flex;
+            }
+
+            .nav-ready .nav:has(.nav-links:not(.is-open)) {
+                display: none;
+            }
+
+            main {
+                flex: 1;
+            }
+
+            .site-copyright {
+                order: 3;
+                margin: 0;
+                padding: 20px 24px 28px;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .sidebar-content {
+                padding: 16px 24px;
+            }
+
+            .brand {
+                font-size: 20px;
+                gap: 4px;
+            }
+        }

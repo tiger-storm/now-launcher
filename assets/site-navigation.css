@@ -1,0 +1,11 @@
+/* Shared additions to the existing site navigation. */
+.nav-links .nav-social {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 24px;
+    padding-top: 18px;
+    border-top: 1px solid var(--border-subtle, #e9e9ec);
+    font-size: 14px;
+}
+.nav-social svg { width: 16px; height: 16px; flex-shrink: 0; }

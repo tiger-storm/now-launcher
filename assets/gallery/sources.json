@@ -1,0 +1,90 @@
+{
+  "note": "Existing app captures with sample data. Onboarding uses a home screenshot, not a setup recording. No native keyboard or permission-dialog capture is claimed. Videos are silent, normal speed H.264 with faststart.",
+  "items": [
+    {
+      "id": "sections",
+      "source": "build/launch-content/video-flow-sections/frames/%05d.png",
+      "kind": "frames",
+      "posterSeconds": 1,
+      "crop": null
+    },
+    {
+      "id": "sections-editor",
+      "source": "marketing/launch-creatives/releases/1.5.0/sources/02-live-sections-phone.mp4",
+      "kind": "video",
+      "posterSeconds": 3,
+      "crop": null
+    },
+    {
+      "id": "all-apps",
+      "source": "build/launch-content/video-suggestions-to-apps/frames/%05d.png",
+      "kind": "frames",
+      "posterSeconds": 3,
+      "crop": null
+    },
+    {
+      "id": "search",
+      "source": "marketing/launch-creatives/batches/2026-11-20/sources/01-search-phone.mp4",
+      "kind": "video",
+      "posterSeconds": 5,
+      "crop": null
+    },
+    {
+      "id": "reminders",
+      "source": "marketing/launch-creatives/batches/2026-11-20/sources/05-check-it-off-phone.mp4",
+      "kind": "video",
+      "posterSeconds": 2,
+      "crop": null
+    },
+    {
+      "id": "reminders-from-search",
+      "source": "marketing/launch-creatives/batches/2026-11-21-evergreen-videos/sources/01-reminder-from-search-phone.mkv",
+      "kind": "video",
+      "posterSeconds": 4,
+      "crop": null
+    },
+    {
+      "id": "quick-settings",
+      "source": "marketing/launch-creatives/batches/2026-11-20/sources/02-quick-controls-phone.mp4",
+      "kind": "video",
+      "posterSeconds": 3,
+      "crop": null
+    },
+    {
+      "id": "icons",
+      "source": "marketing/launch-creatives/videos/social/now-launcher-video-apps-themed-shapes.mp4",
+      "kind": "social",
+      "posterSeconds": 5,
+      "crop": "396:884:342:354"
+    },
+    {
+      "id": "suggestions",
+      "source": "marketing/launch-creatives/videos/social/now-launcher-video-day-suggestions.mp4",
+      "kind": "social",
+      "posterSeconds": 5,
+      "crop": "396:884:342:354"
+    },
+    {
+      "id": "my-suggestions",
+      "source": "marketing/launch-creatives/batches/2026-11-20/sources/04-custom-maps-phone.mp4",
+      "kind": "video",
+      "posterSeconds": 5,
+      "crop": null
+    },
+    {
+      "id": "onboarding",
+      "source": "website/assets/features/free.png",
+      "kind": "screenshot"
+    },
+    {
+      "id": "themes",
+      "source": "website/assets/features/display.png",
+      "kind": "screenshot"
+    },
+    {
+      "id": "suggestion-settings",
+      "source": "website/assets/features/personalise.png",
+      "kind": "screenshot"
+    }
+  ]
+}
