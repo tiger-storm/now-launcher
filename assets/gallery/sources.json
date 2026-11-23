@@ -1,5 +1,5 @@
 {
-  "note": "Existing app captures with sample data. Onboarding uses a home screenshot, not a setup recording. No native keyboard or permission-dialog capture is claimed. Videos are silent, normal speed H.264 with faststart.",
+  "note": "Production-widget app captures with sample data. Onboarding was freshly recorded on 23 November 2026 through Welcome, Explore, Default Search, Sections and Finish. No native keyboard or Android system-dialog capture is claimed. Videos are silent, normal speed H.264 with faststart.",
   "items": [
     {
       "id": "sections",
@@ -73,8 +73,11 @@
     },
     {
       "id": "onboarding",
-      "source": "website/assets/features/free.png",
-      "kind": "screenshot"
+      "source": "build/marketing/gallery-onboarding/onboarding.mp4",
+      "kind": "video",
+      "captureScript": "marketing/launch-creatives/scripts/capture_gallery_onboarding.dart",
+      "captureConfig": "marketing/launch-creatives/batches/2026-11-23-onboarding/capture-config.json",
+      "posterSource": "build/marketing/gallery-onboarding/welcome.png"
     },
     {
       "id": "themes",
